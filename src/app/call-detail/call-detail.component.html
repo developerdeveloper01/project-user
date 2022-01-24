@@ -1,0 +1,109 @@
+<!-- <p>call-detail works! </p>
+<h1>{{id}}</h1> -->
+<!-- <div class="card-body p-3">
+  <ul class="list-group">
+    <table>
+
+    </table>
+
+    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">#ID:</strong> &nbsp; {{calldetail?.id}}</li>
+    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">From:</strong> &nbsp; {{calldetail?.caller_id_name}}</li>
+    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">To:</strong> &nbsp; {{calldetail?.destination_number}}</li>
+    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Call ID:</strong> &nbsp; {{calldetail?.uuid}}</li>
+    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Date:</strong> &nbsp; {{calldetail?.createdAt | date}}</li>
+    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Call Duration:</strong> &nbsp; {{calldetail?.billsec}}</li>
+  </ul>
+</div> -->
+  <section>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card">
+            <div class="table-responsive">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th colspan="1" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                    <th class="align-middle text-center">Call Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">#ID:</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{calldetail?.id}}</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">From:</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{calldetail?.caller_id_name}}</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">To:</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{calldetail?.destination_number}}</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Call ID:</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{calldetail?.uuid}}</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Date:</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{calldetail?.createdAt | date}}</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Call Start Time:</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{calldetail?.created_time | date : 'mediumTime' }}</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Call End Time:</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{calldetail?.end_stamp | date :'mediumTime'}}</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Call Duration:</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{calldetail?.billsec}} sec ({{minutes}} min)</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

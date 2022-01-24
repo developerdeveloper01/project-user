@@ -1,0 +1,282 @@
+<div class="row justify-content-center">
+  <div class="col-12 text-center">
+    <h2 class="text-gradient text-primary text-center">Total Calls</h2>
+    <!-- <p class="lead mb-5">Join the world&#39;s largest developer community</p> -->
+  </div>
+</div>
+<div class="row py-3">
+  <div class="col-md-10 mx-auto">
+    <div class="row">
+
+      <div class="col-lg-4 mt-lg-n2 mt-2">
+        <label class="ms-0">From</label>
+        <div class="input-group input-group-static">
+          <span class="input-group-text"></span>
+          <input class="form-control datepicker" placeholder="Please select date" type="date" >
+        </div>
+
+      </div>
+      <div class="col-lg-4 mt-lg-n2 mt-2">
+        <label class="ms-0">To</label>
+        <div class="input-group input-group-static">
+          <span class="input-group-text"></span>
+          <input class="form-control datepicker" placeholder="Please select date" type="date" >
+        </div>
+      </div>
+      <div class="col-lg-4 mt-lg-n2 mt-2">
+        <label>&nbsp;</label>
+        <button type="button" class="btn bg-gradient-primary w-100 mb-0">Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-12">
+  <div class="card my-4">
+    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+      <div
+        class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3"
+      >
+        <h6 class="text-white text-capitalize ps-3">Total Calls | <span class="opacity-8"> {{allcalls?.length}}</span></h6>
+      </div>
+    </div>
+    <div class="card-body px-0 pb-2">
+      <div class="table-responsive p-0">
+        <table class="table align-items-center mb-0">
+          <thead>
+            <tr>
+              <th
+              class="
+                text-uppercase text-center text-secondary text-xxs
+                font-weight-bolder
+                opacity-7
+              "
+            >
+              #S.No.
+            </th>
+              <th
+                class="
+                  text-uppercase text-center text-secondary text-xxs
+                  font-weight-bolder
+                  opacity-7
+                "
+              >
+                #ID
+              </th>
+              <th
+                class="
+                  text-uppercase text-center text-secondary text-xxs
+                  font-weight-bolder
+                  opacity-7
+                "
+              >
+                Destination
+              </th>
+              <th
+                class="
+                  text-uppercase text-center text-secondary text-xxs
+                  font-weight-bolder
+                  opacity-7
+                "
+              >
+                Caller
+              </th>
+              <th
+                class="
+                  text-uppercase text-center text-secondary text-xxs
+                  font-weight-bolder
+                  opacity-7
+                  ps-2
+                "
+              >
+                Call ID
+              </th>
+              <th
+                class="
+                  text-uppercase text-center text-secondary text-xxs
+                  font-weight-bolder
+                  opacity-7
+                "
+              >
+                Bill/HangUp
+              </th>
+              <th
+                class="
+                  text-uppercase text-center text-secondary text-xxs
+                  font-weight-bolder
+                  opacity-7
+                "
+              >
+                Date
+              </th>
+              <th
+                class="
+                  text-uppercase text-center text-secondary text-xxs
+                  font-weight-bolder
+                  opacity-7
+                "
+              >
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <div *ngIf="!allcalls" style="margin: auto;" class="p-5">
+            <div class="reverse-spinner"></div>
+          </div>
+          <tbody *ngIf="allcalls">
+            <tr *ngFor="let log of allcalls | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+              <td>
+                <p class="text-xs font-weight-bold mb-0 text-center">
+                  {{ i+1+(p-1)*10 }}
+                </p>
+              </td>
+              <td>
+                <p class="text-xs font-weight-bold mb-0 text-center">
+                  {{ log.id }}
+                </p>
+              </td>
+              <td>
+                <p class="text-xs font-weight-bold mb-0 text-center">
+                  {{ log.destination_number }}
+                </p>
+              </td>
+              <td>
+                <p class="text-xs font-weight-bold mb-0 text-center">
+                  {{ log.caller_id_name }}
+                </p>
+              </td>
+              <td>
+                <p class="text-xs font-weight-bold mb-0 text-center">
+                  {{ log.uuid }}
+                </p>
+              </td>
+              <td>
+                <p class="text-xs font-weight-bold mb-0 text-center">
+                  {{ log.billsec }}
+                </p>
+              </td>
+              <td>
+                <span
+                  class="text-secondary text-xs font-weight-bold text-center"
+                  >{{ log.created_time | date: "short" }}</span
+                >
+              </td>
+              <td class="align-middle text-center">
+                <a
+                  class="text-secondary font-weight-bold text-xs"
+                  data-toggle="tooltip"
+                  data-original-title="Edit user" routerLink="/call-details/{{log._id}}"
+                >
+                  <i
+                    class="material-icons opacity-10"
+                    style="color: var(--bs-info)"  >visibility
+                  </i>
+                </a>
+              </td>
+            </tr>
+            <!-- <tr>
+              <td class="align-end text-end" colspan="4">Total</td>
+              <td class="text-center">
+                {{ totalbill }}
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+        <div class="row justify-content-center my-3">
+          <div class="col-12 p-0 text-center">
+            <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Call Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <section class="pt-5">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-12">
+                  <div class="table-responsive">
+                    <table class="table table-pricing">
+                      <thead class="text-light">
+                        <tr>
+                          <th class="ps-2">
+                            <h6 class="mb-0">Field</h6>
+                          </th>
+                          <th class="text-center">
+                            <h6 class="font-weight-bolder text-darker mb-0">Details</h6>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="py-3">
+                            <span class="text-xs">Community support</span>
+                          </td>
+                          <td class="text-center py-3">
+                            <i class="fas fa-check text-success text-xs"></i>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-3">
+                              <span class="text-xs">100+ Example Pages</span>
+                          </td>
+                          <td class="text-center py-3">
+                            <i class="fas fa-check text-success text-xs"></i>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-3">
+                            <span class="text-xs">50+ Section Examples</span>
+                          </td>
+                          <td class="text-center py-3">
+                            <i class="fas fa-check text-success text-xs"></i>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-3">
+                            <span class="text-xs">Multiple use</span>
+                          </td>
+                          <td class="text-center py-3">
+
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-3">
+                            <span class="text-xs">Custom messages</span>
+                          </td>
+                          <td class="text-center py-3">
+                            <i class="fas fa-minus text-secondary text-xs"></i>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-3">
+                            <span class="text-xs">Multiple requests</span>
+                          </td>
+                          <td class="text-center py-3">
+                            <i class="fas fa-minus text-secondary text-xs"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn bg-gradient-dark mb-0" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn bg-gradient-primary mb-0">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

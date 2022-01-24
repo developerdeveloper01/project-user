@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "40d14cb1-2fe4-4423-879a-9b0e91edcc3c"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -27,9 +30,23 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/nucleo-icons.css",
+              "src/assets/css/nucleo-svg.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/css/material-dashboard.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/core/popper.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/plugins/smooth-scrollbar.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src//assets/js/plugins/perfect-scrollbar.min.js",
+              "src/assets/js/material-dashboard.js",
+              "src/assets/js/plugins/chartjs.min.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -37,12 +54,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "100kb",
+                  "maximumError": "800kb"
                 }
               ],
               "fileReplacements": [
@@ -94,6 +111,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []

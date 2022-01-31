@@ -49,9 +49,7 @@
 </head>
 
 <body class="mat-typography">
-  <div id="paymentform"></div>
-  <!-- id="payment-form" -->
-  <button id="paybtn">Pay</button>
+
   <app-root></app-root>
 
   <!-- <script src="./assets/js/core/popper.min.js"></script> -->
@@ -60,50 +58,6 @@
   <!-- <script src="./assets/js/core/bootstrap.min.js"></script> -->
   <!-- <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script> -->
   <!-- <script src="./assets/js/plugins/chartjs.min.js"></script> -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <script type="application/javascript" crossorigin="anonymous"
-    src="https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/hUrIPQ70388081414462.js"
-    onload="onScriptLoad();"> </script>
-  <script>
-    function onScriptLoad() {
-      var config = {
-        "root": "",
-        "flow": "DEFAULT",
-        "data": {
-          "orderId": "uniqueid1345", /* update order id */
-          "token": "", /* update token value */
-          "tokenType": "TXN_TOKEN",
-          "amount": "100" /* update amount */
-        },
-        "handler": {
-          "notifyMerchant": function (eventName, data) {
-            console.log("notifyMerchant handler function called");
-            console.log("eventName => ", eventName);
-            console.log("data => ", data);
-          }
-        }
-      };
+</body>
 
-      if (window.Paytm && window.Paytm.CheckoutJS) {
-        window.Paytm.CheckoutJS.onLoad(function excecuteAfterCompleteLoad() {
-          // initialze configuration using init method
-          window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
-            // after successfully updating configuration, invoke JS Checkout
-            window.Paytm.CheckoutJS.invoke();
-          }).catch(function onError(error) {
-            console.log("error => ", error);
-          });
-        });
-        ;
-      }
-    }
-
-  </script> -->
-  <!-- <script>
-    const dropConfig = {
-      "components": [
-        "order-details",
-        "card",
-        "netbanking",
-        "app",
-        "upi-collect",
+</html>

@@ -12,8 +12,9 @@ const url = '../../assets/js/main.js';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
-  userDetails:any;
-  Plans:any;
+  userDetails: any;
+  Plans: any;
+  edit: Boolean = false;
   defaultimage = "../assets/img/bruce-mars.jpg"
   defaultuserimg = "../../assets/img/team-4.jpg"
 
@@ -38,37 +39,46 @@ export class SettingsComponent implements OnInit {
     this.getpopularplans();
   }
 
-  getmydata(){
-    this.userService.getmyprofile().subscribe((response:any)=>{
+  getmydata() {
+    this.userService.getmyprofile().subscribe((response: any) => {
       console.log(response)
       this.userDetails = response.data;
 
       this.settingform.setValue({
-        firstname:this.userDetails?.firstname?this.userDetails?.firstname:"",
-        lastname:this.userDetails?.lastname?this.userDetails?.lastname:"",
-        email:this.userDetails?.email?this.userDetails?.email:"",
-        mobile:this.userDetails?.mobile?this.userDetails?.mobile:"",
-        organization_name:this.userDetails?.organization_name?this.userDetails?.organization_name:"",
+        firstname: this.userDetails?.firstname ? this.userDetails?.firstname : "",
+        lastname: this.userDetails?.lastname ? this.userDetails?.lastname : "",
+        email: this.userDetails?.email ? this.userDetails?.email : "",
+        mobile: this.userDetails?.mobile ? this.userDetails?.mobile : "",
+        organization_name: this.userDetails?.organization_name ? this.userDetails?.organization_name : "",
       })
 
-    },(error)=>{
-     console.log(error)
+    }, (error) => {
+      console.log(error)
     })
   }
 
-  savesetting(){
+  savesetting() {
     console.log(this.settingform.value)
+    //editprofile
+    this.userService.editprofile(this.settingform.value).subscribe((response: any) => {
+      console.log(response)
+      //this.Plans = response.data;
+      this.getmydata()
+      this.edit = false
+    }, (error) => {
+      console.log(error)
+    })
   }
 
 
 
-  getpopularplans(){
+  getpopularplans() {
     console.log("Popular plans")
-    this.userService.getallplans().subscribe((response:any)=>{
+    this.userService.getallplans().subscribe((response: any) => {
       console.log(response)
       this.Plans = response.data;
-    },(error)=>{
-     console.log(error)
+    }, (error) => {
+      console.log(error)
     })
   }
 }

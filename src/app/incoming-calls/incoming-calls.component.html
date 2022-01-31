@@ -6,38 +6,43 @@
 </div>
 <div class="row py-3">
   <div class="col-md-10 mx-auto">
-    <div class="row">
+    <form [formGroup]="filterdata" (submit)="filterdate()">
+      <div class="row">
 
-      <div class="col-lg-4 mt-lg-n2 mt-2">
-        <label class="ms-0">From</label>
-        <div class="input-group input-group-static">
-          <span class="input-group-text"></span>
-          <input class="form-control datepicker" placeholder="Please select date" type="date" >
+        <div class="col-lg-4 mt-lg-n2 mt-2">
+          <label class="ms-0">From</label>
+          <div class="input-group input-group-static">
+            <span class="input-group-text"></span>
+            <input class="form-control datepicker" formControlName="startdate" [min]="datemin" [max]="lastdate"
+              placeholder="Please select date" type="date">
+          </div>
+
+        </div>
+        <div class="col-lg-4 mt-lg-n2 mt-2">
+          <label class="ms-0">To</label>
+          <div class="input-group input-group-static">
+            <span class="input-group-text"></span>
+            <input class="form-control datepicker" formControlName="enddate"
+              [min]="filterdata.controls['startdate'].value" [max]="lastdate" placeholder="Please select date"
+              type="date">
+          </div>
+        </div>
+        <div class="col-lg-4 mt-lg-n2 mt-2">
+          <label>&nbsp;</label>
+          <button type="submit" class="btn bg-gradient-primary w-100 mb-0">Search</button>
         </div>
 
       </div>
-      <div class="col-lg-4 mt-lg-n2 mt-2">
-        <label class="ms-0">To</label>
-        <div class="input-group input-group-static">
-          <span class="input-group-text"></span>
-          <input class="form-control datepicker" placeholder="Please select date" type="date" >
-        </div>
-      </div>
-      <div class="col-lg-4 mt-lg-n2 mt-2">
-        <label>&nbsp;</label>
-        <button type="button" class="btn bg-gradient-primary w-100 mb-0">Search</button>
-      </div>
-    </div>
+    </form>
   </div>
 </div>
 
 <div class="col-12">
   <div class="card my-4">
     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-      <div
-        class="bg-gradient-success shadow-success border-radius-lg pt-4 pb-3"
-      >
-        <h6 class="text-white text-capitalize ps-3">Incoming Calls | <span class="opacity-8"> {{allreceived?.length}}</span></h6>
+      <div class="bg-gradient-success shadow-success border-radius-lg pt-4 pb-3">
+        <h6 class="text-white text-capitalize ps-3">Incoming Calls | <span class="opacity-8">
+            {{newarr?.length || allreceived?.length}}</span></h6>
       </div>
     </div>
 
@@ -47,83 +52,68 @@
         <table class="table align-items-center mb-0">
           <thead>
             <tr>
-              <th
-                class="
+              <th class="
                   text-uppercase text-center text-secondary text-xxs
                   font-weight-bolder
                   opacity-7
-                "
-              >
+                ">
                 #S.No.
               </th>
-              <th
-                class="
+              <th class="
                   text-uppercase text-center text-secondary text-xxs
                   font-weight-bolder
                   opacity-7
-                "
-              >
+                ">
                 #ID
               </th>
-              <th
-                class="
+              <th class="
                   text-uppercase text-center text-secondary text-xxs
                   font-weight-bolder
                   opacity-7
-                "
-              >
+                ">
                 Destination
               </th>
-              <th
-                class="
+              <th class="
                   text-uppercase text-center text-secondary text-xxs
                   font-weight-bolder
                   opacity-7
-                "
-              >
+                ">
                 Caller
               </th>
-              <th
-                class="
+              <th class="
                   text-uppercase text-center text-secondary text-xxs
                   font-weight-bolder
                   opacity-7
                   ps-2
-                "
-              >
+                ">
                 Call ID
               </th>
-              <th
-                class="
+              <th class="
                   text-uppercase text-center text-secondary text-xxs
                   font-weight-bolder
                   opacity-7
-                "
-              >
+                ">
                 Bill/HangUp
               </th>
-              <th
-                class="
+              <th class="
                   text-uppercase text-center text-secondary text-xxs
                   font-weight-bolder
                   opacity-7
-                "
-              >
+                ">
                 Date
               </th>
-              <th
-                class="
+              <th class="
                   text-uppercase text-center text-secondary text-xxs
                   font-weight-bolder
                   opacity-7
-                "
-              >
+                ">
                 Actions
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let log of allreceived | paginate: { itemsPerPage: 10, currentPage: r }; let i = index">
+            <tr
+              *ngFor="let log of newarr || allreceived | paginate: { itemsPerPage: 10, currentPage: r }; let i = index">
               <td>
                 <p class="text-xs font-weight-bold mb-0 text-center">
                   {{ i+1+(r-1)*10 }}
@@ -155,22 +145,13 @@
                 </p>
               </td>
               <td>
-                <span
-                  class="text-secondary text-xs font-weight-bold text-center"
-                  >{{ log.created_time | date: "short" }}</span
-                >
+                <span class="text-secondary text-xs font-weight-bold text-center">{{ log.created_time | date: "short"
+                  }}</span>
               </td>
               <td class="align-middle text-center">
-                <a
-                  href="javascript:;"
-                  class="text-secondary font-weight-bold text-xs"
-                  data-toggle="tooltip"
-                  data-original-title="Edit user"
-                >
-                  <i
-                    class="material-icons opacity-10"
-                    style="color: var(--bs-info)"
-                    >visibility
+                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
+                  data-original-title="Edit user" routerLink="/call-details/{{log._id}}">
+                  <i class="material-icons opacity-10" style="color: var(--bs-info)">visibility
                   </i>
                 </a>
               </td>

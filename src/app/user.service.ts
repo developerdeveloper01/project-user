@@ -27,6 +27,16 @@ export class UserService {
     });
   }
 
+  editprofile(data: any) {
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'auth-token': "Bearer " + localStorage.getItem('auth-token'),
+    })
+    return this.http.post(`${this.backendurl}/user/setting`, data, {
+      headers: header,
+    });
+  }
+
   getcalllogs(id: any) {
     return this.http.get(`${this.backendurl}/admin/getdetailofonenumber/${id}`);
   }
@@ -88,7 +98,7 @@ export class UserService {
     return this.http.get(`${this.backendurl}/admin/unreadmessages/${id}`);
   }
 
-  getmybilling(id:any) {
+  getmybilling(id: any) {
     return this.http.get(`${this.backendurl}/user/allmybilling/${id}`);
   }
 

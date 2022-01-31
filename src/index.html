@@ -61,35 +61,19 @@
   <!-- <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script> -->
   <!-- <script src="./assets/js/plugins/chartjs.min.js"></script> -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- <script src="https://sdk.cashfree.com/js/ui/1.0.22/dropinClient.sandbox.js"></script> -->
-  <!-- <script type="application/javascript" crossorigin="anonymous" src="https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/hUrIPQ70388081414462.js" onload="logsuccess();">
-   </script> -->
-  <script src="https://sdk.cashfree.com/js/ui/1.0.22/dropinClient.sandbox.js"></script>
-
-  <!-- <script>
-    let script = document.createElement('script');
-
-    // can load any script, from any domain
-    script.src = "https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/hUrIPQ70388081414462.js"
-    script.type = "application/javascript"
-    script.crossorigin = "anonymous"
-    document.head.append(script);
-
-    script.onload = function () {
-      onScriptLoad()
-      // the script creates a variable "_"
-      console.log("Data loaded"); // shows library version
-    };
+  <script type="application/javascript" crossorigin="anonymous"
+    src="https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/hUrIPQ70388081414462.js"
+    onload="onScriptLoad();"> </script>
+  <script>
     function onScriptLoad() {
-      console.log("loaded")
       var config = {
         "root": "",
         "flow": "DEFAULT",
         "data": {
-          "orderId": "ORDER_123456", /* update order id */
+          "orderId": "uniqueid1345", /* update order id */
           "token": "", /* update token value */
           "tokenType": "TXN_TOKEN",
-          "amount": "200" /* update amount */
+          "amount": "100" /* update amount */
         },
         "handler": {
           "notifyMerchant": function (eventName, data) {
@@ -105,12 +89,12 @@
           // initialze configuration using init method
           window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
             // after successfully updating configuration, invoke JS Checkout
-            console.log("on success");
             window.Paytm.CheckoutJS.invoke();
           }).catch(function onError(error) {
             console.log("error => ", error);
           });
         });
+        ;
       }
     }
 
@@ -123,122 +107,3 @@
         "netbanking",
         "app",
         "upi-collect",
-        "upi-intent"
-      ],
-      "orderToken": "your-order-token",
-      "onSuccess": function (data) {
-        //on payment flow complete
-        console.log("On success", data);
-      },
-      "onFailure": function (data) {
-        //on failure during payment initiation
-        console.log("On Failed", data);
-      },
-      "style": {
-        //to be replaced by the desired values
-        "backgroundColor": "#ffffff",
-        "color": "#11385b",
-        "fontFamily": "Lato",
-        "fontSize": "14px",
-        "errorColor": "#ff0000",
-        "theme": "light", //(or dark)
-      }
-    }
-
-
-    const cashfree = new Cashfree();
-    const paymentElement = document.getElementById("payment-form");
-    cashfree.initialiseDropin(paymentElement, dropConfig);
-  </script> -->
-  <!-- <script>
-    const orderToken = "Q4O1GK19cdcBzyubAfhz6Fu/5Ow52QgDZTAGhv7ADEoINSU778EhBBrG1vdozxeK/oUMK0q2ln8il2wkT2Bb/JMj3GbnzEA5Tm96er+fkl0=";
-    const cashfree = new Cashfree();
-    const paymentDom = document.getElementById("payment-form");
-    const success = function (data) {
-      if (data.order && data.order.status == "PAID") {
-        alert("Order is PAID")
-        //order is paid
-        //verify order status by making an API call using your server to cashfree's server
-        // using data.order.order_id
-      } else {
-        //order is still active
-        alert("Order is ACTIVE")
-      }
-    }
-    let failure = function (data) {
-      alert(data.order.errorText)
-    }
-    document.getElementById("pay-btn").addEventListener("click", () => {
-      console.log("button clicked")
-      const dropConfig = {
-        "components": [
-          "order-details",
-          "card",
-          "netbanking",
-          "app",
-          "upi-collect",
-          "upi-intent"
-        ],
-        "orderToken": orderToken,
-        "onSuccess": success,
-        "onFailure": failure,
-        "style": {
-          "backgroundColor": "#ffffff",
-          "color": "#11385b",
-          "fontFamily": "Lato",
-          "fontSize": "14px",
-          "errorColor": "#ff0000",
-          "theme": "light", //(or dark)
-        }
-      }
-      cashfree.initialiseDropin(paymentDom, dropConfig);
-    })
-  </script> -->
-  <script>
-    const orderToken =
-      "Q4O1GK19cdcBzyubAfhz6Fu/5Ow52QgDZTAGhv7ADEoINSU778EhBBrG1vdozxeK/oUMK0q2ln8il2wkT2Bb/JMj3GbnzEA5Tm96er+fkl0=";
-    const cashfree = new Cashfree();
-    const paymentDom = document.getElementById("paymentform");
-    const success = function (data) {
-      if (data.order && data.order.status == "PAID") {
-        alert("Order is PAID");
-        //order is paid
-        //verify order status by making an API call using your server to cashfree's server
-        // using data.order.order_id
-      } else {
-        //order is still active
-        alert("Order is ACTIVE");
-      }
-    };
-    let failure = function (data) {
-      alert(data.order.errorText);
-    };
-    document.getElementById("paybtn").addEventListener("click", () => {
-      console.log("button clicked");
-      const dropConfig = {
-        components: [
-          "order-details",
-          "card",
-          "netbanking",
-          "app",
-          "upi-collect",
-          "upi-intent",
-        ],
-        orderToken: orderToken,
-        onSuccess: success,
-        onFailure: failure,
-        style: {
-          backgroundColor: "#ffffff",
-          color: "#11385b",
-          fontFamily: "Lato",
-          fontSize: "14px",
-          errorColor: "#ff0000",
-          theme: "light", //(or dark)
-        },
-      };
-      cashfree.initialiseDropin(paymentDom, dropConfig);
-    });
-  </script>
-</body>
-
-</html>

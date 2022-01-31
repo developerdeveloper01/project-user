@@ -87,4 +87,9 @@ export class UserService {
   unreadmessages(id: any) {
     return this.http.get(`${this.backendurl}/admin/unreadmessages/${id}`);
   }
+
+  getmybilling(id:any) {
+    return this.http.get(`${this.backendurl}/user/allmybilling/${id}`);
+  }
+
 }

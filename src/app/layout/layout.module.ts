@@ -1,3 +1,4 @@
+import { PaymentComponent } from './../payment/payment.component';
 import { MessagesComponent } from './../messages/messages.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgModule } from '@angular/core';
@@ -33,7 +34,8 @@ import { CallDetailComponent } from '../call-detail/call-detail.component';
     IncomingCallsComponent,
     MissedCallsComponent,
     CallDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    PaymentComponent,
   ],
   imports: [
     CommonModule,

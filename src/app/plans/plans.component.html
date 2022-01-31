@@ -1,76 +1,181 @@
-<section class="pt-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 text-center">
-        <h2 class="text-gradient text-primary text-center">Compare Features</h2>
-        <p class="lead mb-5">Join the world&#39;s largest developer community</p>
-      </div>
-      <div class="col-lg-10">
-        <div class="table-responsive">
-          <table class="table table-pricing">
-            <thead class="text-light">
-              <tr>
-                <th class="ps-2">
-                  <h6 class="mb-0">Space individual</h6>
-                </th>
-                <th class="text-center">
-                  <h6 class="font-weight-bold">Team</h6>
-                  <h5 class="font-weight-bolder text-darker mb-0">$39</h5>
-                </th>
-                <th class="text-center">
+<div class="row text-center py-3 mt-3">
+  <div class="col-8 mx-auto">
+    <div class="nav-wrapper position-relative end-0">
+      <ul class="nav nav-pills nav-fill p-1" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link mb-0 px-0 py-1 active"
+            data-bs-toggle="tab"
+            href="#toll-free"
+            role="tab"
+            aria-controls="profile"
+            aria-selected="true"
+          >
+            Toll Free
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link mb-0 px-0 py-1"
+            data-bs-toggle="tab"
+            href="#prepaid"
+            role="tab"
+            aria-controls="dashboard"
+            aria-selected="false"
+          >
+            Prepaid
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a
+            class="nav-link mb-0 px-0 py-1"
+            data-bs-toggle="tab"
+            href="#incoming-calls"
+            role="tab"
+            aria-controls="dashboard"
+            aria-selected="false"
+          >
+            Postpaid
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link mb-0 px-0 py-1"
+            data-bs-toggle="tab"
+            href="#calls-missed"
+            role="tab"
+            aria-controls="dashboard"
+            aria-selected="false"
+          >
+            IVR
+          </a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content">
+  <div
+    class="tab-pane fade show active"
+    id="toll-free"
+    role="tabpanel"
+    aria-labelledby="home-tab"
+  >
+    <section class="pt-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <h2 class="text-gradient text-primary text-center">
+              <!-- Compare Features -->
+              Toll Free
+            </h2>
+            <p class="lead mb-5">
+              <!-- Join the world&#39;s largest developer community -->
+              Compare Features
+            </p>
+          </div>
+          <div class="col-lg-11">
+            <div class="table-responsive">
+              <table class="table table-pricing">
+                <thead class="text-light">
+                  <tr>
+                    <th class="ps-2">
+                      <h6 class="mb-0">Price </h6>
+                    </th>
+                    <th
+                      class="text-center"
+                      *ngFor="let plan of plans | slice: 0:5"
+                    >
+                      <h6 class="font-weight-bold">{{ plan?.plantitle }}</h6>
+                      <h5 class="font-weight-bolder text-darker mb-0">
+                        ₹ {{ plan?.planprice }}
+                      </h5>
+                    </th>
+                    <!-- <th class="text-center">
                   <h6 class="font-weight-bold">Growth</h6>
-                  <h5 class="font-weight-bolder text-darker mb-0">$79</h5>
+                  <h5 class="font-weight-bolder text-darker mb-0">₹ 79</h5>
                 </th>
                 <th class="text-center">
                   <h6 class="font-weight-bold">Enterprise</h6>
-                  <h5 class="font-weight-bolder text-darker mb-0">$99</h5>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="py-3">
-                  <span class="text-xs">Community support</span>
-                </td>
-                <td class="text-center py-3">
+                  <h5 class="font-weight-bolder text-darker mb-0">₹ 99</h5>
+                </th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Incoming Balance</span>
+                    </td>
+                    <td
+                      class="text-center py-3"
+                      *ngFor="let plan of plans | slice: 0:5"
+                    >
+                      <!-- <i class="fas fa-check text-success text-xs"></i> -->
+                      <p>{{ plan?.minute_balance }} mins</p>
+                    </td>
+                    <!-- <td class="text-center py-3">
                   <i class="fas fa-check text-success text-xs"></i>
                 </td>
                 <td class="text-center py-3">
                   <i class="fas fa-check text-success text-xs"></i>
-                </td>
-                <td class="text-center py-3">
-                  <i class="fas fa-check text-success text-xs"></i>
-                </td>
-              </tr>
-              <tr>
-                <td class="py-3">
-                    <span class="text-xs">100+ Example Pages</span>
-                </td>
-                <td class="text-center py-3">
-                  <i class="fas fa-check text-success text-xs"></i>
-                </td>
-                <td class="text-center py-3">
-                  <i class="fas fa-check text-success text-xs"></i>
-                </td>
-                <td class="text-center py-3">
-                  <i class="fas fa-check text-success text-xs"></i>
-                </td>
-              </tr>
-              <tr>
-                <td class="py-3">
-                  <span class="text-xs">50+ Section Examples</span>
-                </td>
-                <td class="text-center py-3">
+                </td> -->
+                  </tr>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Outgoing Balance</span>
+                    </td>
+                    <td
+                      class="text-center py-3"
+                      *ngFor="let plan of plans | slice: 0:5"
+                    >
+                      <!-- <i class="fas fa-check text-success text-xs"></i> -->
+                      <p>{{ plan?.minute_balance }} mins</p>
+                    </td>
+                    <!-- <td class="text-center py-3">
                   <i class="fas fa-check text-success text-xs"></i>
                 </td>
                 <td class="text-center py-3">
                   <i class="fas fa-check text-success text-xs"></i>
+                </td> -->
+                  </tr>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Validity (day) </span>
+                    </td>
+                    <td
+                      class="text-center py-3"
+                      *ngFor="let plan of plans | slice: 0:5"
+                    >
+                      <!-- <i class="fas fa-check text-success text-xs"></i> -->
+                      <p>{{ plan?.validityday }} days</p>
+                    </td>
+                    <!-- <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
                 </td>
                 <td class="text-center py-3">
                   <i class="fas fa-check text-success text-xs"></i>
+                </td> -->
+                  </tr>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Description</span>
+                    </td>
+                    <td
+                      class="text-center py-3"
+                      *ngFor="let plan of plans | slice: 0:5"
+                    >
+                      <!-- <i class="fas fa-check text-success text-xs"></i> -->
+                      <p>{{ plan?.desc }}</p>
+                    </td>
+                    <!-- <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
                 </td>
-              </tr>
-              <tr>
+                <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td> -->
+                  </tr>
+                  <!-- <tr>
                 <td class="py-3">
                   <span class="text-xs">Multiple use</span>
                 </td>
@@ -87,59 +192,296 @@
                     upon request
                   </span>
                 </td>
-              </tr>
-              <tr>
+              </tr> -->
+                  <!-- <tr>
                 <th class="pt-4 pb-2 ps-2">
                   <h6 class="mb-0">Developer tools</h6>
                 </th>
                 <th></th>
                 <th></th>
                 <th></th>
-              </tr>
-              <tr>
-                <td class="py-3">
-                  <span class="text-xs">Custom messages</span>
-                </td>
-                <td class="text-center py-3">
-                  <i class="fas fa-minus text-secondary text-xs"></i>
-                </td>
-                <td class="text-center py-3">
-                  <i class="fas fa-check text-success text-xs"></i>
-                </td>
-                <td class="text-center py-3">
-                  <i class="fas fa-check text-success text-xs"></i>
-                </td>
-              </tr>
-              <tr>
-                <td class="py-3">
-                  <span class="text-xs">Multiple requests</span>
-                </td>
-                <td class="text-center py-3">
-                  <i class="fas fa-minus text-secondary text-xs"></i>
-                </td>
-                <td class="text-center py-3">
-                  <i class="fas fa-minus text-secondary text-xs"></i>
-                </td>
-                <td class="text-center py-3">
-                  <i class="fas fa-check text-success text-xs"></i>
-                </td>
-              </tr>
-              <tr>
-                <th class="border-bottom-0"></th>
-                <th class="text-center align-items-center border-bottom-0">
-                  <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
-                </th>
-                <th class="text-center align-items-center border-bottom-0">
-                  <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
-                </th>
-                <th class="text-center align-items-center border-bottom-0">
-                  <a href="javascript:;" class="btn bg-gradient-primary mt-3">Choose Plan</a>
-                </th>
-              </tr>
-            </tbody>
-          </table>
+              </tr> -->
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Call Recording</span>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-minus text-secondary text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Multiple requests</span>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-minus text-secondary text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-minus text-secondary text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="border-bottom-0"></th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3"
+                        >Choose Plan</a
+                      >
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3"
+                        >Choose Plan</a
+                      >
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a
+                        href="javascript:;"
+                        class="btn bg-gradient-primary mt-3"
+                        >Choose Plan</a
+                      >
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3"
+                        >Choose Plan</a
+                      >
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3"
+                        >Choose Plan</a
+                      >
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
-</section>
+  <div
+    class="tab-pane fade show"
+    id="prepaid"
+    role="tabpanel"
+    aria-labelledby="home-tab"
+  >
+    <section class="pt-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <h2 class="text-gradient text-primary text-center">
+              <!-- Compare Features -->
+              Prepaid Plans
+            </h2>
+            <p class="lead mb-5">
+              <!-- Join the world&#39;s largest developer community -->
+              Compare Features
+            </p>
+          </div>
+          <div class="col-lg-11">
+            <div class="table-responsive">
+              <table class="table table-pricing">
+                <thead class="text-light">
+                  <tr>
+                    <th class="ps-2">
+                      <h6 class="mb-0">Space individual</h6>
+                    </th>
+                    <th
+                      class="text-center"
+                      *ngFor="let plan of plans | slice: 0:5"
+                    >
+                      <h6 class="font-weight-bold">{{ plan?.plantitle }}</h6>
+                      <h5 class="font-weight-bolder text-darker mb-0">
+                        ₹ {{ plan?.planprice }}
+                      </h5>
+                    </th>
+                    <!-- <th class="text-center">
+                  <h6 class="font-weight-bold">Growth</h6>
+                  <h5 class="font-weight-bolder text-darker mb-0">₹ 79</h5>
+                </th>
+                <th class="text-center">
+                  <h6 class="font-weight-bold">Enterprise</h6>
+                  <h5 class="font-weight-bolder text-darker mb-0">₹ 99</h5>
+                </th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Minute Balance</span>
+                    </td>
+                    <td
+                      class="text-center py-3"
+                      *ngFor="let plan of plans | slice: 0:5"
+                    >
+                      <!-- <i class="fas fa-check text-success text-xs"></i> -->
+                      <p>{{ plan?.minute_balance }} mins</p>
+                    </td>
+                    <!-- <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td>
+                <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td> -->
+                  </tr>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Validity (day) </span>
+                    </td>
+                    <td
+                      class="text-center py-3"
+                      *ngFor="let plan of plans | slice: 0:5"
+                    >
+                      <!-- <i class="fas fa-check text-success text-xs"></i> -->
+                      <p>{{ plan?.validityday }} days</p>
+                    </td>
+                    <!-- <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td>
+                <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td> -->
+                  </tr>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Description</span>
+                    </td>
+                    <td
+                      class="text-center py-3"
+                      *ngFor="let plan of plans | slice: 0:5"
+                    >
+                      <!-- <i class="fas fa-check text-success text-xs"></i> -->
+                      <p>{{ plan?.desc }}</p>
+                    </td>
+                    <!-- <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td>
+                <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td> -->
+                  </tr>
+                  <!-- <tr>
+                <td class="py-3">
+                  <span class="text-xs">Multiple use</span>
+                </td>
+                <td class="text-center py-3">
+
+                </td>
+                <td class="text-center py-3">
+                  <span class="text-xs">
+                    upon request
+                  </span>
+                </td>
+                <td class="text-center py-3">
+                  <span class="text-xs">
+                    upon request
+                  </span>
+                </td>
+              </tr> -->
+                  <!-- <tr>
+                <th class="pt-4 pb-2 ps-2">
+                  <h6 class="mb-0">Developer tools</h6>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr> -->
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Call Recording</span>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-minus text-secondary text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Multiple requests</span>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-minus text-secondary text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-minus text-secondary text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="border-bottom-0"></th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3"
+                        >Choose Plan</a
+                      >
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3"
+                        >Choose Plan</a
+                      >
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a
+                        href="javascript:;"
+                        class="btn bg-gradient-primary mt-3"
+                        >Choose Plan</a
+                      >
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3"
+                        >Choose Plan</a
+                      >
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3"
+                        >Choose Plan</a
+                      >
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

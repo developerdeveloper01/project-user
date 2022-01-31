@@ -54,33 +54,17 @@
   <!-- <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script> -->
   <!-- <script src="./assets/js/plugins/chartjs.min.js"></script> -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- <script type="application/javascript" crossorigin="anonymous" src="https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/hUrIPQ70388081414462.js" onload="logsuccess();">
-   </script> -->
-
-   <script>
-     let script = document.createElement('script');
-
-// can load any script, from any domain
-script.src = "https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/hUrIPQ70388081414462.js"
-script.type = "application/javascript"
-script.crossorigin = "anonymous"
-document.head.append(script);
-
-script.onload = function() {
-  onScriptLoad()
-  // the script creates a variable "_"
-  console.log("Data loaded"); // shows library version
-};
-function onScriptLoad(){
-    console.log("loaded")
+  <script type="application/javascript" crossorigin="anonymous" src="https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/hUrIPQ70388081414462.js" onload="onScriptLoad();"> </script>
+<script>
+  function onScriptLoad(){
       var config = {
         "root": "",
         "flow": "DEFAULT",
         "data": {
-        "orderId": "ORDER_123456", /* update order id */
+        "orderId": "uniqueid1345", /* update order id */
         "token": "", /* update token value */
         "tokenType": "TXN_TOKEN",
-        "amount": "200" /* update amount */
+        "amount": "100" /* update amount */
         },
         "handler": {
           "notifyMerchant": function(eventName,data){
@@ -96,7 +80,6 @@ function onScriptLoad(){
               // initialze configuration using init method
               window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
                   // after successfully updating configuration, invoke JS Checkout
-                  console.log("on success");
                   window.Paytm.CheckoutJS.invoke();
               }).catch(function onError(error){
                   console.log("error => ",error);
@@ -104,7 +87,6 @@ function onScriptLoad(){
           });
       }
   }
-
-   </script>
-</body>
+</script>
+  </body>
 </html>

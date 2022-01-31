@@ -14,6 +14,7 @@ import { TotalCallsComponent } from '../total-calls/total-calls.component';
 import { IncomingCallsComponent } from '../incoming-calls/incoming-calls.component';
 import { MissedCallsComponent } from '../missed-calls/missed-calls.component';
 import { CallDetailComponent } from '../call-detail/call-detail.component';
+import { PaymentComponent } from '../payment/payment.component';
 
 export const LayoutRoutingModule: Routes = [
   { path: 'home', component: HomeComponent },
@@ -31,4 +32,5 @@ export const LayoutRoutingModule: Routes = [
   { path: 'notifications', component: NotificationComponent },
   { path: 'messages', component: MessagesComponent },
   { path: 'chats', component: ChatsComponent },
+  { path: 'paymentverity', component: PaymentComponent },
 ];

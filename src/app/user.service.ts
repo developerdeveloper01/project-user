@@ -7,7 +7,8 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   backendurltest = 'https://demo.rishtaguru.com/api';
-  backendurl = 'http://localhost:6789/api';
+  backendurlold = 'http://localhost:6789/api';
+  backendurl = 'http://52.90.52.191/api';
   getvalue: string = ""
   constructor(public http: HttpClient) {
     console.log("constructor hit");

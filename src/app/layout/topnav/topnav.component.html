@@ -1,5 +1,6 @@
-<!-- <nav class="navbar card border border-radius-lg navbar-main navbar-expand-lg px-0 shadow-none border-radius-xl"
-  id="navbarBlur" navbar-scroll="true" style="margin-left: 17.125rem !important;">
+<nav
+  class="navbar card border border-radius-lg navbar-main navbar-expand-lg px-0 my-2 mx-4 ms-2 shadow border-radius-xl"
+  id="navbarBlur" navbar-scroll="false" style="margin-left: 16.75rem !important;">
   <div class="container-fluid py-1 px-3">
     <div class="d-flex">
       <img style="background: white;
@@ -26,7 +27,7 @@
           }
         </style>
         <div class="avatar avatar-lg position-relative" routerLink="/profile">
-          <img [src]="userDetails?.userimg || defaultimage" alt="profile_image" class="w-75 border-radius-xl shadow-sm">
+          <img [src]="userDetails?.userimg || defaultimage" alt="profile_image" class="w-75 border-radius-xl shadow">
         </div>
 
         <ul class="navbar-nav  justify-content-end">
@@ -134,20 +135,25 @@
       </div>
     </div>
   </div>
-</nav> -->
+</nav>
 
 
 <!-- Navbar Light -->
-<div class="container position-sticky z-index-sticky top-0 min-vh-10">
+<!-- <div class="container position-sticky z-index-sticky top-0 min-vh-10">
   <div class="row">
     <div class="col-12">
       <nav
-        class="navbar navbar-expand-lg blur border-radius-xl position-absolute my-3 top-0 border-bottom py-3 z-index-3 shadow my-3 py-2 start-0 end-0 mx-4">
-        <!-- style="margin-right: -8.5rem !important; margin-left: 7.5rem !important;
-        " -->
+        class="navbar navbar-expand-lg blur border-radius-xl position-absolute my-3 top-0 border-bottom py-3 z-index-3 shadow my-3 py-2 start-0 end-0 mx-4"
+        style="margin-right: -8.5rem !important; margin-left: 7.5rem !important;
+        ">
+
         <div class="container">
           <a class="navbar-brand" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
-            VoiceTech Dashboard
+            <span><img style="background: white;
+                                      border-radius: 0.5rem;
+                                      margin: 3px;
+                                      padding: 5px;" src="../../assets/img/logo-black.png" alt="" srcset=""
+                width="70px"></span> VoiceTech Dashboard
           </a>
 
           <a href="https://www.creative-tim.com/product/material-design-system-pro#pricingCard"
@@ -203,7 +209,6 @@
           </div>
         </div>
       </nav>
-      <!-- End Navbar -->
     </div>
   </div>
-</div>
+</div> -->

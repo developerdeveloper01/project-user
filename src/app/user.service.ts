@@ -8,7 +8,8 @@ export class UserService {
 
   backendurltest = 'https://demo.rishtaguru.com/api';
   backendurlold = 'http://localhost:6789/api';
-  backendurl = 'http://52.90.52.191/v1/api';
+  backendurlolder = 'http://52.90.52.191/v1/api';
+  backendurl = 'http://3.216.223.141/v1/api';
   getvalue: string = ""
   constructor(public http: HttpClient) {
     console.log("constructor hit");

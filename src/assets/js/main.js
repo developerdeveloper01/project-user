@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var ctx = document.getElementById("chart-bars").getContext("2d");
 
-  var url = "http://52.90.52.191/v1/api/admin/getweekdaywisedata";
+  var url = "http://3.216.223.141/v1/api/admin/getweekdaywisedata";
   var toget = $.get(url);
 
   toget.done(function (data) {

@@ -84,7 +84,7 @@
   }
 }
 
-.my-pagination /deep/ .ngx-pagination .current {
+.my-pagination ::ng-deep .ngx-pagination .current {
   background: #e53471;
   border-radius: 50%;
 }

@@ -34,8 +34,8 @@ export class MissedCallsComponent implements OnInit {
       this.datemin = response.data[0]?.created_time?.slice(0, 10)
       this.lastdate = response.data[response.data.length - 1]?.created_time?.slice(0, 10)
       this.filterdata.setValue({
-        startdate: this.datemin,
-        enddate: this.lastdate
+        startdate: this.datemin || new Date().toISOString().split('T')[0],
+        enddate: this.lastdate || new Date().toISOString().split('T')[0]
       })
     }, (error) => {
       console.log(error)

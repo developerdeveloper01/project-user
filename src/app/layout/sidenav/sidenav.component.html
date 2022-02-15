@@ -1,5 +1,5 @@
 <aside
-  class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-2 fixed-start ms-2   bg-gradient-dark"
+  class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl shadow my-2 fixed-start ms-2  bg-gradient-dark"
   id="sidenav-main">
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
@@ -34,7 +34,7 @@
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">call</i>
           </div>
-          <span class="nav-link-text ms-1">Total Calls <span
+          <span class="nav-link-text ms-1">Total Calls <span *ngIf="allcalls?.length"
               class="text-white p-1 bg-gradient-dark shadow-dark  border-radius-lg">{{allcalls?.length}}</span>
           </span>
         </a>
@@ -45,7 +45,7 @@
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">call_made</i>
           </div>
-          <span class="nav-link-text ms-1">Outgoing Calls <span
+          <span class="nav-link-text ms-1">Outgoing Calls <span *ngIf="allcalllogs?.length"
               class="text-white p-1 bg-gradient-warning shadow-primary border-radius-lg">{{allcalllogs?.length}}</span>
 
           </span>
@@ -57,7 +57,7 @@
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">call_received</i>
           </div>
-          <span class="nav-link-text ms-1">Incoming Calls <span
+          <span class="nav-link-text ms-1">Incoming Calls <span *ngIf="allreceived?.length"
               class="text-white p-1 bg-gradient-success shadow-primary border-radius-lg">{{allreceived?.length}}</span></span>
         </a>
       </li>
@@ -67,7 +67,7 @@
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">phone_missed</i>
           </div>
-          <span class="nav-link-text ms-1">Missed Calls <span
+          <span class="nav-link-text ms-1">Missed Calls <span *ngIf="allmissed?.length"
               class="text-white p-1 bg-gradient-info shadow-info border-radius-lg">{{allmissed?.length}}</span></span>
         </a>
       </li>
@@ -114,7 +114,7 @@
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">email</i>
           </div>
-          <span class="nav-link-text ms-1">Support <span
+          <span class="nav-link-text ms-1">Support <span *ngIf="unreadmsgs"
               class="text-dark p-1 bg-gradient-light shadow-light border-radius-lg">{{unreadmsgs}}</span></span>
         </a>
       </li>

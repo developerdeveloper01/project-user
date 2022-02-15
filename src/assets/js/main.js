@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var ctx = document.getElementById("chart-bars").getContext("2d");
 
-  var url = "http://localhost:6789/api/admin/getweekdaywisedata";
+  var url = "http://52.90.52.191/v1/api/admin/getweekdaywisedata";
   var toget = $.get(url);
 
   toget.done(function (data) {
@@ -23,7 +23,7 @@ $(document).ready(function () {
             borderRadius: 4,
             borderSkipped: false,
             backgroundColor: "rgba(255, 255, 255, .8)",
-            data: [mondaydata, tuesdata, Wednesdata, thursdata, 0, 0, 0],
+            data: [1, 2, 4, 1, 5, 1, 0],
             maxBarThickness: 6,
           },
         ],
@@ -111,7 +111,7 @@ $(document).ready(function () {
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+          data: [50, 40, 300, 320, 500, 350, 20, 230, 500],
           maxBarThickness: 6,
         },
       ],
@@ -194,7 +194,7 @@ $(document).ready(function () {
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+          data: [50, 40, 300, 220, 500, 50, 400, 230, 500],
           maxBarThickness: 6,
         },
       ],

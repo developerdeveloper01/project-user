@@ -2,7 +2,7 @@ import { LayoutAuthComponent } from './layout-auth/layout-auth.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -13,7 +13,6 @@ import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { TopnavComponent } from './layout/topnav/topnav.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { PluginComponent } from './layout/plugin/plugin.component';
-import { MessagesComponent } from './messages/messages.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutModule } from './layout/layout.module';
 import { UserService } from './user.service';
@@ -48,7 +47,7 @@ import { AddCardComponent } from './add-card/add-card.component';
     ChatsComponent,
     AddCardComponent,
   ],
-  providers: [UserService,AuthGuard],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

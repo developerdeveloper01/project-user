@@ -19,6 +19,7 @@ import { OutgoingCallsComponent } from '../outgoing-calls/outgoing-calls.compone
 import { IncomingCallsComponent } from '../incoming-calls/incoming-calls.component';
 import { MissedCallsComponent } from '../missed-calls/missed-calls.component';
 import { CallDetailComponent } from '../call-detail/call-detail.component';
+import { PaymoneyComponent } from '../paymoney/paymoney.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CallDetailComponent } from '../call-detail/call-detail.component';
     CallDetailComponent,
     MessagesComponent,
     PaymentComponent,
+    PaymoneyComponent,
   ],
   imports: [
     CommonModule,
@@ -45,4 +47,4 @@ import { CallDetailComponent } from '../call-detail/call-detail.component';
     RouterModule.forChild(LayoutRoutingModule),
   ],
 })
-export class LayoutModule {}
+export class LayoutModule { }

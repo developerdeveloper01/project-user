@@ -20,9 +20,9 @@ export class PaymoneyComponent implements OnInit {
       productInfo: this.payuform.productinfo,
       amount: this.payuform.amount
     }
-    return this.http.post<any>('http://localhost:8080/payment/payment-details', paymentPayload).subscribe(
+    return this.http.post<any>('http://localhost:6789/api/admin/paynownew', paymentPayload).subscribe(
       (data: any) => {
-        console.log(data);
+        console.log(data.response);
         this.payuform.txnid = data.txnId;
         this.payuform.surl = data.sUrl;
         this.payuform.furl = data.fUrl;
@@ -30,6 +30,7 @@ export class PaymoneyComponent implements OnInit {
         this.payuform.hash = data.hash;
         this.payuform.txnid = data.txnId;
         this.disablePaymentButton = false;
+        window.location.href = data.response;
       }, error => {
         console.log(error);
       })

@@ -104,4 +104,8 @@ export class UserService {
     return this.http.get(`${this.backendurl}/user/allmybilling/${id}`);
   }
 
+  inittransaction(data: any) {
+    return this.http.post(`${this.backendurl}/admin/paynownew`, data);
+  }
+
 }

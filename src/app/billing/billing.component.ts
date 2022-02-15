@@ -8,68 +8,69 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./billing.component.css']
 })
 export class BillingComponent implements OnInit {
-  bills:any
-  viewpaypage:boolean=false
-  constructor(private http: HttpClient,public userService:UserService) { }
+  bills: any
+  viewpaypage: boolean = false
+  userDetails: any
+  constructor(private http: HttpClient, public userService: UserService) { }
 
-// I have all below fields values
-// paytm:any = {
-//     MID: "hUrIPQ70388081414462", // paytm provide
-//     WEBSITE: "WEBSTAGING", // paytm provide
-//     INDUSTRY_TYPE_ID: "Retail", // paytm provide
-//     CHANNEL_ID: "WEB", // paytm provide
-//     ORDER_ID: "neworder_123", // unique id
-//     CUST_ID: "customer_123", // customer id
-//     MOBILE_NO: "5555566666", // customer mobile number
-//     EMAIL: "test555666@paytm.com", // customer email
-//     TXN_AMOUNT: "10.00", // transaction amount
-//     CALLBACK_URL: "http://localhost:4200/paymentverity", // Call back URL that i want to redirect after payment fail or success
-//     // CHECKSUMHASH:'',
-//     // Key:"Z2@Dn0smzMJbC!N9"
-//   };
+  // I have all below fields values
+  // paytm:any = {
+  //     MID: "hUrIPQ70388081414462", // paytm provide
+  //     WEBSITE: "WEBSTAGING", // paytm provide
+  //     INDUSTRY_TYPE_ID: "Retail", // paytm provide
+  //     CHANNEL_ID: "WEB", // paytm provide
+  //     ORDER_ID: "neworder_123", // unique id
+  //     CUST_ID: "customer_123", // customer id
+  //     MOBILE_NO: "5555566666", // customer mobile number
+  //     EMAIL: "test555666@paytm.com", // customer email
+  //     TXN_AMOUNT: "10.00", // transaction amount
+  //     CALLBACK_URL: "http://localhost:4200/paymentverity", // Call back URL that i want to redirect after payment fail or success
+  //     // CHECKSUMHASH:'',
+  //     // Key:"Z2@Dn0smzMJbC!N9"
+  //   };
 
-// submitForm() {
-//     // I will do API call and will get CHECKSUMHASH.
-//     this.http.post('http://localhost:6789/api/admin/paytmpay', this.paytm)
-//        .subscribe((res: any) => {
-//              // As per my backend i will get checksumhash under res.data
-//              //console.log(res)
-//              this.paytm.CHECKSUMHASH = res//
-//              // than i will create form
-//              this.createPaytmForm();
-//         });
-// };
+  // submitForm() {
+  //     // I will do API call and will get CHECKSUMHASH.
+  //     this.http.post('http://localhost:6789/api/admin/paytmpay', this.paytm)
+  //        .subscribe((res: any) => {
+  //              // As per my backend i will get checksumhash under res.data
+  //              //console.log(res)
+  //              this.paytm.CHECKSUMHASH = res//
+  //              // than i will create form
+  //              this.createPaytmForm();
+  //         });
+  // };
 
-// createPaytmForm() {
-//    const my_form: any = document.createElement('form');
-//     my_form.name = 'paytm_form';
-//     my_form.method = 'post';
-//     //my_form.action = 'https://securegw-stage.paytm.in/order/process';
-//     my_form.action = 'https://securegw-stage.paytm.in/order/process';
+  // createPaytmForm() {
+  //    const my_form: any = document.createElement('form');
+  //     my_form.name = 'paytm_form';
+  //     my_form.method = 'post';
+  //     //my_form.action = 'https://securegw-stage.paytm.in/order/process';
+  //     my_form.action = 'https://securegw-stage.paytm.in/order/process';
 
-//     const myParams = Object.keys(this.paytm);
-//     console.log(myParams)
-//     console.log(my_form)
-//     for (let i = 0; i < myParams.length; i++) {
-//       const key = myParams[i];
-//       let my_tb: any = document.createElement('input');
-//       my_tb.type = 'hidden';
-//       my_tb.name = key;
-//       my_tb.value = this.paytm[key];
-//       my_form.appendChild(my_tb);
-//     };
-//     console.log(my_form);
+  //     const myParams = Object.keys(this.paytm);
+  //     console.log(myParams)
+  //     console.log(my_form)
+  //     for (let i = 0; i < myParams.length; i++) {
+  //       const key = myParams[i];
+  //       let my_tb: any = document.createElement('input');
+  //       my_tb.type = 'hidden';
+  //       my_tb.name = key;
+  //       my_tb.value = this.paytm[key];
+  //       my_form.appendChild(my_tb);
+  //     };
+  //     console.log(my_form);
 
-//     document.body.appendChild(my_form);
-//     //my_form.submit();
-// // after click will fire you will redirect to paytm payment page.
-// // after complete or fail transaction you will redirect to your CALLBACK URL
-// };
+  //     document.body.appendChild(my_form);
+  //     //my_form.submit();
+  // // after click will fire you will redirect to paytm payment page.
+  // // after complete or fail transaction you will redirect to your CALLBACK URL
+  // };
 
 
 
-////////////////////////////////////////////////
-ShowBillingForm: boolean = true;
+  ////////////////////////////////////////////////
+  ShowBillingForm: boolean = true;
   PlanId: any;
   PlanRes: any = [];
   PlanDetail: any = [];
@@ -118,7 +119,7 @@ ShowBillingForm: boolean = true;
     };
 
     //this.spinnerService.show();
-    this.http.post(`http://localhost:6789/api/admin/paytmpay`,this.RequestedData).subscribe(res => {
+    this.http.post(`http://localhost:6789/api/admin/paytmpay`, this.RequestedData).subscribe(res => {
       // this.responseBilling = res;
       // this.PurchaseStatus = this.responseBilling.purchasePlanStatus;
       // this.TransactionFormshow = true;
@@ -139,15 +140,15 @@ ShowBillingForm: boolean = true;
         CHECKSUMHASH: res,
         // "CALLBACK_URL": this.RequestedData.callbacK_URL
         MID: "hUrIPQ70388081414462", // paytm provide
-    WEBSITE: "WEBSTAGING", // paytm provide
-    INDUSTRY_TYPE_ID: "Retail", // paytm provide
-    CHANNEL_ID: "WEB", // paytm provide
-    ORDER_ID: "neworder_12345", // unique id
-    CUST_ID: "customer_123", // customer id
-    MOBILE_NO: "5555566666", // customer mobile number
-    EMAIL: "test555666@paytm.com", // customer email
-    TXN_AMOUNT: "100.00", // transaction amount
-    CALLBACK_URL: "http://localhost:6789/api/admin/verifypay", // Call back URL that i want to redirect after payment fail or success
+        WEBSITE: "WEBSTAGING", // paytm provide
+        INDUSTRY_TYPE_ID: "Retail", // paytm provide
+        CHANNEL_ID: "WEB", // paytm provide
+        ORDER_ID: "neworder_12345", // unique id
+        CUST_ID: "customer_123", // customer id
+        MOBILE_NO: "5555566666", // customer mobile number
+        EMAIL: "test555666@paytm.com", // customer email
+        TXN_AMOUNT: "100.00", // transaction amount
+        CALLBACK_URL: "http://localhost:6789/api/admin/verifypay", // Call back URL that i want to redirect after payment fail or success
       };
       this.createPaytmForm();
     });
@@ -174,38 +175,67 @@ ShowBillingForm: boolean = true;
     //console.log(my_form)
   }
 
-ngOnInit(): void {
-  this.getmybills()
-}
+  ngOnInit(): void {
+    this.getmybills()
+  }
 
-getmybills(){
-  this.userService.getmybilling('611ca5046e6a0f17484684f4').subscribe((response:any)=>{
-    console.log(response)
-    this.bills = response.data
-  },(error)=>{
-   console.log(error)
-  })
-}
+  getmybills() {
+    this.userService.getmybilling('611ca5046e6a0f17484684f4').subscribe((response: any) => {
+      console.log(response)
+      this.bills = response.data
+    }, (error) => {
+      console.log(error)
+    })
+  }
 
-Payumoney(){
-  //test: https://test.payu.in/_payment
+  Payumoney() {
+    console.log("payumoney")
+    this.userService.getmyprofile().subscribe((response: any) => {
+      console.log(response)
+      this.userDetails = response.data;
+      const paymentPayload = {
+        email: this.userDetails.email,
+        name: this.userDetails.firstname,
+        phone: this.userDetails.mobile,
+        productInfo: "SIP",
+        amount: 1
+      }
+      console.log(paymentPayload)
+      this.postandredirect(paymentPayload)
+    }, (error) => {
+      console.log(error)
+    })
 
-//   Authorization	Bearer {{access_token}}
-// Content-Type	application/x-www-form-urlencoded
 
-}
+    //test: https://test.payu.in/_payment
 
-// submitPaymentForm() {
-//   if(this.checkValidations(this.payUMoney)) {
-//     this.payUMoneyService.makePayment(this.payUMoney).subscribe(
-//       PayUMoneyModel => this.onPaymentSuccess(PayUMoneyModel),
-//       error => this.onPaymentFailure(error)
-//     );
-//   } else {
-//     let message = new Message();
-//     message.isError = true;
-//     message.error_msg = "Fields missing";
-//     this.messageService.message(message);
-//   }
-// }
+    //   Authorization	Bearer {{access_token}}
+    // Content-Type	application/x-www-form-urlencoded
+
+  }
+  postandredirect(data: any) {
+    this.userService.inittransaction(data).subscribe((response: any) => {
+      console.log(response.response)
+
+      window.location.href = response.response;
+    }, (error) => {
+      console.log(error)
+    })
+  }
+
+  // submitPaymentForm() {
+  //   if(this.checkValidations(this.payUMoney)) {
+  //     this.payUMoneyService.makePayment(this.payUMoney).subscribe(
+  //       PayUMoneyModel => this.onPaymentSuccess(PayUMoneyModel),
+  //       error => this.onPaymentFailure(error)
+  //     );
+  //   } else {
+  //     let message = new Message();
+  //     message.isError = true;
+  //     message.error_msg = "Fields missing";
+  //     this.messageService.message(message);
+  //   }
+  // }
+
+
 }

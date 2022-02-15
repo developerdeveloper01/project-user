@@ -45,7 +45,7 @@ import { AddCardComponent } from './add-card/add-card.component';
     ServiceComponent,
     PlansComponent,
     ChatsComponent,
-    AddCardComponent,
+    AddCardComponent
   ],
   providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]

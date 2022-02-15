@@ -20,6 +20,8 @@ import { IncomingCallsComponent } from '../incoming-calls/incoming-calls.compone
 import { MissedCallsComponent } from '../missed-calls/missed-calls.component';
 import { CallDetailComponent } from '../call-detail/call-detail.component';
 import { PaymoneyComponent } from '../paymoney/paymoney.component';
+import { TransactionFailComponent } from '../transaction-fail/transaction-fail.component';
+import { TransactionSuccessComponent } from '../transaction-success/transaction-success.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { PaymoneyComponent } from '../paymoney/paymoney.component';
     MessagesComponent,
     PaymentComponent,
     PaymoneyComponent,
+    TransactionFailComponent,
+    TransactionSuccessComponent
   ],
   imports: [
     CommonModule,

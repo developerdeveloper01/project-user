@@ -16,6 +16,8 @@ import { MissedCallsComponent } from '../missed-calls/missed-calls.component';
 import { CallDetailComponent } from '../call-detail/call-detail.component';
 import { PaymentComponent } from '../payment/payment.component';
 import { PaymoneyComponent } from '../paymoney/paymoney.component';
+import { TransactionSuccessComponent } from '../transaction-success/transaction-success.component';
+import { TransactionFailComponent } from '../transaction-fail/transaction-fail.component';
 
 export const LayoutRoutingModule: Routes = [
   { path: 'home', component: HomeComponent },
@@ -34,5 +36,7 @@ export const LayoutRoutingModule: Routes = [
   { path: 'messages', component: MessagesComponent },
   { path: 'chats', component: ChatsComponent },
   { path: 'paymentverity', component: PaymentComponent },
-  { path: 'payu', component: PaymoneyComponent },
+  { path: 'checkoutpage', component: PaymoneyComponent },
+  { path: 'transaction-success', component: TransactionSuccessComponent },
+  { path: 'transaction-failed', component: TransactionFailComponent },
 ];

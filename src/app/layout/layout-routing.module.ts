@@ -18,6 +18,7 @@ import { PaymentComponent } from '../payment/payment.component';
 import { PaymoneyComponent } from '../paymoney/paymoney.component';
 import { TransactionSuccessComponent } from '../transaction-success/transaction-success.component';
 import { TransactionFailComponent } from '../transaction-fail/transaction-fail.component';
+import { SpinnerOverlayComponent } from '../spinner-overlay/spinner-overlay.component';
 
 export const LayoutRoutingModule: Routes = [
   { path: 'home', component: HomeComponent },
@@ -39,4 +40,5 @@ export const LayoutRoutingModule: Routes = [
   { path: 'checkoutpage', component: PaymoneyComponent },
   { path: 'transaction-success', component: TransactionSuccessComponent },
   { path: 'transaction-failed', component: TransactionFailComponent },
+  { path: 'loader', component: SpinnerOverlayComponent },
 ];

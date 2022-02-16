@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,8 @@ import { ServiceComponent } from './service/service.component';
 import { PlansComponent } from './plans/plans.component';
 import { ChatsComponent } from './chats/chats.component';
 import { AddCardComponent } from './add-card/add-card.component';
+import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
+import { SpinnerInterceptor } from './spinner.interceptor';
 
 
 @NgModule({
@@ -29,6 +31,7 @@ import { AddCardComponent } from './add-card/add-card.component';
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
+
     RouterModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -45,9 +48,14 @@ import { AddCardComponent } from './add-card/add-card.component';
     ServiceComponent,
     PlansComponent,
     ChatsComponent,
-    AddCardComponent
+    AddCardComponent,
+    SpinnerOverlayComponent
   ],
-  providers: [UserService, AuthGuard],
+  providers: [UserService, AuthGuard, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: SpinnerInterceptor,
+    multi: true,
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

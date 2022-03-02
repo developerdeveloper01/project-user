@@ -1,3 +1,4 @@
+import { InvoiceComponent } from './../invoice/invoice.component';
 import { PaymentComponent } from './../payment/payment.component';
 import { MessagesComponent } from './../messages/messages.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -22,6 +23,8 @@ import { CallDetailComponent } from '../call-detail/call-detail.component';
 import { PaymoneyComponent } from '../paymoney/paymoney.component';
 import { TransactionFailComponent } from '../transaction-fail/transaction-fail.component';
 import { TransactionSuccessComponent } from '../transaction-success/transaction-success.component';
+import { NgxAudioPlayerModule } from 'ngx-audio-player';
+
 
 @NgModule({
   declarations: [
@@ -41,12 +44,14 @@ import { TransactionSuccessComponent } from '../transaction-success/transaction-
     PaymentComponent,
     PaymoneyComponent,
     TransactionFailComponent,
-    TransactionSuccessComponent
+    TransactionSuccessComponent,
+    InvoiceComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     NgxPaginationModule,
+    NgxAudioPlayerModule,
     ReactiveFormsModule,
     RouterModule.forChild(LayoutRoutingModule),
   ],

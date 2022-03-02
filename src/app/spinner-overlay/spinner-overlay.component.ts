@@ -13,7 +13,7 @@ export class SpinnerOverlayComponent implements OnInit {
   constructor(private loaderService: SpinnerOverlayService) {
 
     this.loaderService.isLoading.subscribe((v) => {
-      console.log(v);
+      //console.log(v);
       this.loading = v;
     });
 

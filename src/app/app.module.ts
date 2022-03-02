@@ -31,7 +31,6 @@ import { SpinnerInterceptor } from './spinner.interceptor';
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-
     RouterModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -49,7 +48,7 @@ import { SpinnerInterceptor } from './spinner.interceptor';
     PlansComponent,
     ChatsComponent,
     AddCardComponent,
-    SpinnerOverlayComponent
+    SpinnerOverlayComponent,
   ],
   providers: [UserService, AuthGuard, {
     provide: HTTP_INTERCEPTORS,

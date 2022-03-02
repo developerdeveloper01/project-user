@@ -1,3 +1,4 @@
+import { InvoiceComponent } from './../invoice/invoice.component';
 import { OutgoingCallsComponent } from './../outgoing-calls/outgoing-calls.component';
 import { PlansComponent } from './../plans/plans.component';
 import { Routes } from '@angular/router';
@@ -41,4 +42,5 @@ export const LayoutRoutingModule: Routes = [
   { path: 'transaction-success', component: TransactionSuccessComponent },
   { path: 'transaction-failed', component: TransactionFailComponent },
   { path: 'loader', component: SpinnerOverlayComponent },
+  { path: 'invoice', component: InvoiceComponent },
 ];

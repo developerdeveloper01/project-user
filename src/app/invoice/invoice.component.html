@@ -2,9 +2,11 @@
   <div class="container invoice">
     <div class="invoice-header">
       <div class="row">
-        <div class="col-xs-8">
-          <h1>Invoice <small>With Credit</small></h1>
-          <h4 class="text-muted">NO: 554775/R1 | Date: 01/01/2015</h4>
+        <div class="col-md-12">
+          <div class="st-4">
+            <h1>Invoice <small>With Credit</small></h1>
+             <h4 class="text-muted">NO: 554775/R1 | Date: 01/01/2015</h4>
+          </div>
         </div>
         <div class="col-xs-4">
           <div class="media">
@@ -23,55 +25,37 @@
     </div>
     <div class="invoice-body">
       <div class="row">
-        <div class="col-xs-5">
+        <div class="col-md-6">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">Company Details</h3>
             </div>
-            <div class="panel-body">
-              <dl class="dl-horizontal">
-                <dt>Name</dt>
-                <dd><strong>Acme Corporation</strong></dd>
-                <dt>Industry</dt>
-                <dd>Software Development</dd>
-                <dt>Address</dt>
-                <dd>Field 3, Moon</dd>
-                <dt>Phone</dt>
-                <dd>123.4456.4567</dd>
-                <dt>Email</dt>
-                <dd>mainl@acme.com</dd>
-                <dt>Tax NO</dt>
-                <dd class="mono">123456789</dd>
-                <dt>Tax Office</dt>
-                <dd>A' Moon</dd>
-                </dl>
-            </div>
+            <ul class="st-1">
+              <li class="st-2">Name: <span class="st-3">Acme Corporation</span></li>
+              <li class="st-2">Industry: <span  class="st-3">Software Development</span></li>
+              <li class="st-2">Address: <span  class="st-3">Field 3, Moon</span></li>
+              <li class="st-2">Phone: <span  class="st-3">5656565656</span></li>
+              <li class="st-2">Email: <span  class="st-3">mainl@acme.com</span></li>
+              <li class="st-2">Tax NO: <span class="st-3">123456789</span></li>
+              <li class="st-2">Tax Office: <span  class="st-3">A' Moon</span></li>
+            </ul>
+
           </div>
         </div>
-        <div class="col-xs-7">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Customer Details</h3>
-            </div>
-            <div class="panel-body">
-              <dl class="dl-horizontal">
-                <dt>Name</dt>
-                <dd>Microsoft Corporation</dd>
-                <dt>Industry</dt>
-                <dd>Software Development</dd>
-                <dt>Address</dt>
-                <dd>One Microsoft Way Redmond, WA 98052-7329, USA</dd>
-                <dt>Phone</dt>
-                <dd>(425) 882-8080</dd>
-                <dt>Email</dt>
-                <dd>contact@microsoft.com</dd>
-                <dt>Tax NO</dt>
-                <dd class="mono">123456789</dd>
-                <dt>&nbsp;</dt>
-                <dd>&nbsp;</dd>
-              </dl>
-            </div>
+        <div class="col-md-6">
+          <div class="panel-heading">
+            <h3 class="panel-title">Customer Details</h3>
           </div>
+          <ul class="st-1">
+            <li class="st-2">Name: <span class="st-3">Acme Corporation</span></li>
+            <li class="st-2">Industry: <span  class="st-3">Software Development</span></li>
+            <li class="st-2">Address: <span  class="st-3">Field 3, Moon</span></li>
+            <li class="st-2">Phone: <span  class="st-3">5656565656</span></li>
+            <li class="st-2">Email: <span  class="st-3">mainl@acme.com</span></li>
+            <li class="st-2">Tax NO: <span class="st-3">123456789</span></li>
+            <li class="st-2">Tax Office: <span  class="st-3">A' Moon</span></li>
+          </ul>
+
         </div>
       </div>
       <div class="panel panel-default">
@@ -214,5 +198,6 @@
       <strong>~ACME~</strong>
     </div>
   </div>
-</div><!-- End Invoice Holder-->
-<input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()">
+  <input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()">
+
+</div>

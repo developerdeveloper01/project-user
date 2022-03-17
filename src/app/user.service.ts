@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  backendurltest = 'https://demo.rishtaguru.com/api';
-  backendurlold = 'http://localhost:6789/api';
+  // backendurltest = 'https://demo.rishtaguru.com/api';
+  // backendurlold = 'http://localhost:6789/api';
   backendurlolder = 'http://52.90.52.191/v1/api';
   backendurl = 'http://3.111.139.178/v1/api';
   getvalue: string = ""

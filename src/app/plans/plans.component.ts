@@ -8,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlansComponent implements OnInit {
   plans:any[]=[]
+  pospaidplans:any[]=[]
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
     this.getpopularplans()
+    this.getpopularpospaidplans()
   }
+
+
 
 
   getpopularplans(){
@@ -20,6 +24,16 @@ export class PlansComponent implements OnInit {
     this.userService.getallplans().subscribe((response:any)=>{
       console.log(response)
       this.plans = response.data;
+    },(error)=>{
+     console.log(error)
+    })
+  }
+
+  getpopularpospaidplans(){
+    console.log("Popular pospaidplans")
+    this.userService.getallpospaidplan().subscribe((response:any)=>{
+      console.log(response)
+      this.pospaidplans = response.data;
     },(error)=>{
      console.log(error)
     })

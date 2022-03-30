@@ -13,12 +13,12 @@
             aria-selected="false">
             Prepaid
           </a>
-        </li>
-        <!-- <li class="nav-item">
+
+        <li class="nav-item">
           <a
             class="nav-link mb-0 px-0 py-1"
             data-bs-toggle="tab"
-            href="#incoming-calls"
+            href="#postpaid"
             role="tab"
             aria-controls="dashboard"
             aria-selected="false"
@@ -26,7 +26,7 @@
             Postpaid
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a
             class="nav-link mb-0 px-0 py-1"
             data-bs-toggle="tab"
@@ -416,4 +416,184 @@
       </div>
     </section>
   </div>
+  <!-- pospaid -->
+  <div class="tab-pane fade show" id="postpaid" role="tabpanel" aria-labelledby="home-tab">
+    <section class="pt-5">
+      <div class="container">
+        <div class="row justify-content-center" >
+          <div class="col-12 text-center">
+            <h2 class="text-gradient text-primary text-center">
+              <!-- Compare Features -->
+              Postpaid Plans
+            </h2>
+            <p class="lead mb-5">
+              <!-- Join the world&#39;s largest developer community -->
+              Compare Features
+            </p>
+          </div>
+          <div class="col-lg-11 card">
+            <div class="table-responsive">
+              <table class="table table-pricing">
+                <thead class="text-light">
+                  <tr>
+                    <th class="ps-2">
+                      <h6 class="mb-0">Space individual</h6>
+                    </th>
+                    <th class="text-center" *ngFor="let pospaidplan of pospaidplans | slice: 0:5;let j = index">
+                      <h6 *ngIf="j == 2" class="text-white p-1 bg-gradient-primary shadow-primary border-radius-lg">
+                        Recommended</h6>
+                      <h6 class="font-weight-bold">{{ pospaidplan?.plantitle }}</h6>
+                      <h5 class="font-weight-bolder text-darker mb-0">
+                        ₹ {{ pospaidplan?.planprice }}
+                      </h5>
+                    </th>
+                    <!-- <th class="text-center">
+                  <h6 class="font-weight-bold">Growth</h6>
+                  <h5 class="font-weight-bolder text-darker mb-0">₹ 79</h5>
+                </th>
+                <th class="text-center">
+                  <h6 class="font-weight-bold">Enterprise</h6>
+                  <h5 class="font-weight-bolder text-darker mb-0">₹ 99</h5>
+                </th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Minute Balance</span>
+                    </td>
+                    <td class="text-center py-3" *ngFor="let pospaidplan of pospaidplans | slice: 0:5">
+                      <!-- <i class="fas fa-check text-success text-xs"></i> -->
+                      <p>{{ pospaidplan?.minute_balance }} mins</p>
+                    </td>
+                    <!-- <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td>
+                <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td> -->
+                  </tr>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Validity (day) </span>
+                    </td>
+                    <td class="text-center py-3" *ngFor="let pospaidplan of pospaidplans | slice: 0:5">
+                      <!-- <i class="fas fa-check text-success text-xs"></i> -->
+                      <p>{{ pospaidplan?.validityday }} days</p>
+                    </td>
+                    <!-- <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td>
+                <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td> -->
+                  </tr>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Description</span>
+                    </td>
+                    <td class="text-center py-3" *ngFor="let pospaidplan of pospaidplans | slice: 0:5">
+                      <!-- <i class="fas fa-check text-success text-xs"></i> -->
+                      <p>{{ pospaidplan?.desc }}</p>
+                    </td>
+                    <!-- <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td>
+                <td class="text-center py-3">
+                  <i class="fas fa-check text-success text-xs"></i>
+                </td> -->
+                  </tr>
+                  <!-- <tr>
+                <td class="py-3">
+                  <span class="text-xs">Multiple use</span>
+                </td>
+                <td class="text-center py-3">
+
+                </td>
+                <td class="text-center py-3">
+                  <span class="text-xs">
+                    upon request
+                  </span>
+                </td>
+                <td class="text-center py-3">
+                  <span class="text-xs">
+                    upon request
+                  </span>
+                </td>
+              </tr> -->
+                  <!-- <tr>
+                <th class="pt-4 pb-2 ps-2">
+                  <h6 class="mb-0">Developer tools</h6>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr> -->
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Call Recording</span>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-minus text-secondary text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-3">
+                      <span class="text-xs">Multiple requests</span>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-minus text-secondary text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-minus text-secondary text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                    <td class="text-center py-3">
+                      <i class="fas fa-check text-success text-xs"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="border-bottom-0"></th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn bg-gradient-primary mt-3">Choose Plan</a>
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
+                    </th>
+                    <th class="text-center align-items-center border-bottom-0">
+                      <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- pospaid close -->
 </div>

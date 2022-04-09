@@ -180,7 +180,8 @@ export class BillingComponent implements OnInit {
   }
 
   getmybills() {
-    this.userService.getmybilling('611ca5046e6a0f17484684f4').subscribe((response: any) => {
+    var loginId = localStorage.getItem('auth-data');
+    this.userService.getmybilling(loginId).subscribe((response: any) => {
       console.log(response)
       this.bills = response.data
     }, (error) => {

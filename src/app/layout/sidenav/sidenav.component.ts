@@ -19,8 +19,8 @@ export class SidenavComponent implements OnInit {
   unreadmsgs:any
   constructor(public routes: Router,public userService: UserService) {
     this.userService.getmyprofile().subscribe((response:any)=>{
-      console.log(response)
       this.userDetails = response.data;
+      localStorage.setItem('auth-data', response.data._id);
       this.getmessages(this.userDetails._id)
     },(error)=>{
      console.log(error)
@@ -81,7 +81,7 @@ export class SidenavComponent implements OnInit {
 
 
   missedcalllogs(){
-    this.userService.getmissedcalldetails("2581").subscribe((response:any)=>{
+    this.userService.getmissedcalldetails('2583').subscribe((response:any)=>{
       console.log(response)
       this.allmissed = response.data
     },(error)=>{

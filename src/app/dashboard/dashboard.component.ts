@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   outgoingcalls:any;
   missedcalls:any;
   userDetails:any;
+  lastFourDid:any;
 
   constructor(public userService: UserService) {}
 
@@ -24,15 +25,44 @@ export class DashboardComponent implements OnInit {
     node.async = true;
     node.charset = 'utf-8';
     document.getElementsByTagName('head')[0].appendChild(node);
-    this.allcallcount();
-    this.alloutgoingcount();
-    this.allincomingcount();
-    this.allmissedcount();
-    this.getmydata();
+   
+
+    this.userService.getmyprofile().subscribe((response:any)=>{
+      //  console.log(response)
+        this.userDetails = response.data;
+  
+        var did_no = response.data.alloted_did.did_no;
+        var lastFourDid = did_no.substr(did_no.length - 4); 
+         console.log(lastFourDid)
+
+          this.allcallcount(lastFourDid);
+          this.alloutgoingcount(lastFourDid);
+          this.allincomingcount(lastFourDid);
+          this.allmissedcount(lastFourDid);  
+
+      },(error)=>{
+       console.log(error)
+      })
+    
+    // this.getmydata();
   }
 
-  allcallcount(){
-    this.userService.getallcallcount('2581').subscribe((response:any)=>{
+  getmydata(){
+    this.userService.getmyprofile().subscribe((response:any)=>{
+    //  console.log(response)
+      this.userDetails = response.data;
+
+      var did_no = response.data.alloted_did.did_no;
+      this.lastFourDid = did_no.substr(did_no.length - 4); 
+      // console.log(lastFourDid)
+
+    },(error)=>{
+     console.log(error)
+    })
+  }
+
+  allcallcount(lastFourDid:any){
+    this.userService.getallcallcount(lastFourDid).subscribe((response:any)=>{
       console.log(response)
       this.totalcalls = response.data;
     },(error)=>{
@@ -40,39 +70,32 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  alloutgoingcount(){
-    this.userService.getoutgoingcallcount('2581').subscribe((response:any)=>{
-      console.log(response)
+  alloutgoingcount(lastFourDid:any){
+    this.userService.getoutgoingcallcount(lastFourDid).subscribe((response:any)=>{
+     // console.log(response)
       this.outgoingcalls = response.data;
     },(error)=>{
      console.log(error)
     })
   }
 
-  allincomingcount(){
-    this.userService.getincomingcallcount('2581').subscribe((response:any)=>{
-      console.log(response)
+  allincomingcount(lastFourDid:any){
+    this.userService.getincomingcallcount(lastFourDid).subscribe((response:any)=>{
+    //  console.log(response)
       this.incomingcalls = response.data;
     },(error)=>{
      console.log(error)
     })
   }
 
-  allmissedcount(){
-    this.userService.getmissedcallcount('2581').subscribe((response:any)=>{
-      console.log(response)
+  allmissedcount(lastFourDid:any){
+    this.userService.getmissedcallcount(lastFourDid).subscribe((response:any)=>{
+    //  console.log(response)
       this.missedcalls = response.data;
     },(error)=>{
      console.log(error)
     })
   }
 
-  getmydata(){
-    this.userService.getmyprofile().subscribe((response:any)=>{
-      console.log(response)
-      this.userDetails = response.data;
-    },(error)=>{
-     console.log(error)
-    })
-  }
+
 }

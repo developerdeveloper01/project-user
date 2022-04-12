@@ -28,10 +28,25 @@ export class SidenavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mycalllogs()
-    this.getallcallsdetails();
-    this.receivedcalllogs()
-    this.missedcalllogs()
+
+    this.userService.getmyprofile().subscribe((response:any)=>{
+      //  console.log(response)
+        this.userDetails = response.data;
+  
+        var did_no = response.data.alloted_did.did_no;
+        var lastFourDid = did_no.substr(did_no.length - 4); 
+         console.log(lastFourDid)
+
+
+          this.mycalllogs(lastFourDid)
+          this.getallcallsdetails(lastFourDid);
+          this.receivedcalllogs(lastFourDid)
+          this.missedcalllogs(lastFourDid)
+
+      },(error)=>{
+        console.log(error)
+    })
+
   }
 
 
@@ -40,8 +55,8 @@ export class SidenavComponent implements OnInit {
     this.routes.navigate(['/login']);
   }
 
-  getallcallsdetails(){
-    this.userService.getallcalldetails("2581").subscribe((response:any)=>{
+  getallcallsdetails(lastFourDid:any){
+    this.userService.getallcalldetails(lastFourDid).subscribe((response:any)=>{
       console.log(response)
       this.allcalls = response.data
       this.allcallspaginator = this.allcalls?.length
@@ -51,8 +66,8 @@ export class SidenavComponent implements OnInit {
     })
   }
 
-  mycalllogs(){
-    this.userService.getcalllogs("2581").subscribe((response:any)=>{
+  mycalllogs(lastFourDid:any){
+    this.userService.getcalllogs(lastFourDid).subscribe((response:any)=>{
       console.log(response)
       this.allcalllogs = response.data
       let total = 0;
@@ -66,8 +81,8 @@ export class SidenavComponent implements OnInit {
     })
   }
 
-  receivedcalllogs(){
-    this.userService.getreceivedcalls("2581").subscribe((response:any)=>{
+  receivedcalllogs(lastFourDid:any){
+    this.userService.getreceivedcalls(lastFourDid).subscribe((response:any)=>{
       console.log(response)
       this.allreceived = response.data
     },(error)=>{
@@ -80,8 +95,8 @@ export class SidenavComponent implements OnInit {
   }
 
 
-  missedcalllogs(){
-    this.userService.getmissedcalldetails('2583').subscribe((response:any)=>{
+  missedcalllogs(lastFourDid:any){
+    this.userService.getmissedcalldetails(lastFourDid).subscribe((response:any)=>{
       console.log(response)
       this.allmissed = response.data
     },(error)=>{

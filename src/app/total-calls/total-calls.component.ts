@@ -15,6 +15,7 @@ export class TotalCallsComponent implements OnInit {
   datemin: any;
   lastdate: any;
   filterdata: FormGroup
+  userDetails: any;
   constructor(public userService: UserService, private fb: FormBuilder) {
     this.filterdata = this.fb.group({
       startdate: [''],
@@ -23,12 +24,26 @@ export class TotalCallsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getallcallsdetails();
+
+    this.userService.getmyprofile().subscribe((response:any)=>{
+      //  console.log(response)
+        this.userDetails = response.data;
+  
+        var did_no = response.data.alloted_did.did_no;
+        var lastFourDid = did_no.substr(did_no.length - 4); 
+         console.log(lastFourDid)
+
+         this.getallcallsdetails(lastFourDid);        
+
+      },(error)=>{
+       console.log(error)
+      })
+      
   }
 
 
-  getallcallsdetails() {
-    this.userService.getallcalldetails("2581").subscribe((response: any) => {
+  getallcallsdetails(lastFourDid:any) {
+    this.userService.getallcalldetails(lastFourDid).subscribe((response: any) => {
       console.log(response)
       this.allcalls = response.data
       this.datemin = response.data[0]?.created_time?.slice(0, 10)

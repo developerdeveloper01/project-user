@@ -15,6 +15,7 @@ export class MissedCallsComponent implements OnInit {
   datemin: any;
   lastdate: any;
   filterdata: FormGroup
+  userDetails: any;
   constructor(public userService: UserService, private fb: FormBuilder) {
     this.filterdata = this.fb.group({
       startdate: [''],
@@ -23,11 +24,24 @@ export class MissedCallsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.missedcalllogs()
+
+    this.userService.getmyprofile().subscribe((response:any)=>{
+      //  console.log(response)
+        this.userDetails = response.data;
+  
+        var did_no = response.data.alloted_did.did_no;
+        var lastFourDid = did_no.substr(did_no.length - 4); 
+         console.log(lastFourDid)
+
+         this.missedcalllogs(lastFourDid);        
+
+      },(error)=>{
+       console.log(error)
+      })
   }
 
-  missedcalllogs() {
-    this.userService.getmissedcalldetails('2583').subscribe((response: any) => {
+  missedcalllogs(lastFourDid:any) {
+    this.userService.getmissedcalldetails(lastFourDid).subscribe((response: any) => {
       console.log(response)
       this.allmissed = response.data
 

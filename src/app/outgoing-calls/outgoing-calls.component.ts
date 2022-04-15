@@ -16,6 +16,7 @@ export class OutgoingCallsComponent implements OnInit {
   datemin: any;
   lastdate: any;
   filterdata: FormGroup
+  userDetails: any;
   constructor(public userService: UserService, private fb: FormBuilder) {
 
     this.filterdata = this.fb.group({
@@ -25,12 +26,26 @@ export class OutgoingCallsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mycalllogs();
+
+    this.userService.getmyprofile().subscribe((response:any)=>{
+      //  console.log(response)
+        this.userDetails = response.data;
+  
+        var did_no = response.data.alloted_did.did_no;
+        var lastFourDid = did_no.substr(did_no.length - 4); 
+         console.log(lastFourDid)
+
+         this.mycalllogs(lastFourDid);        
+
+      },(error)=>{
+       console.log(error)
+      })
+
   }
 
 
-  mycalllogs() {
-    this.userService.getcalllogs("2581").subscribe((response: any) => {
+  mycalllogs(lastFourDid:any) { 
+    this.userService.getcalllogs(lastFourDid).subscribe((response: any) => {
       console.log(response)
       this.allcalllogs = response.data
       let total = 0;

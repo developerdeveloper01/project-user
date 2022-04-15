@@ -15,6 +15,7 @@ export class IncomingCallsComponent implements OnInit {
   datemin: any;
   lastdate: any;
   filterdata: FormGroup
+  userDetails: any;
   constructor(public userService: UserService, private fb: FormBuilder) {
     this.filterdata = this.fb.group({
       startdate: [''],
@@ -23,11 +24,24 @@ export class IncomingCallsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.receivedcalllogs();
+
+    this.userService.getmyprofile().subscribe((response:any)=>{
+      //  console.log(response)
+        this.userDetails = response.data;
+  
+        var did_no = response.data.alloted_did.did_no;
+        var lastFourDid = did_no.substr(did_no.length - 4); 
+         console.log(lastFourDid)
+
+         this.receivedcalllogs(lastFourDid);        
+
+      },(error)=>{
+       console.log(error)
+      })
   }
 
-  receivedcalllogs() {
-    this.userService.getreceivedcalls("2581").subscribe((response: any) => {
+  receivedcalllogs(lastFourDid:any) {
+    this.userService.getreceivedcalls(lastFourDid).subscribe((response: any) => {
       console.log(response)
       this.allreceived = response.data
       this.datemin = response.data[0]?.created_time?.slice(0, 10)

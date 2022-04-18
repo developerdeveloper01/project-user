@@ -33,7 +33,8 @@ export const LayoutRoutingModule: Routes = [
   { path: 'missed-calls', component: MissedCallsComponent },
   { path: 'call-details/:id', component: CallDetailComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'billing', component: BillingComponent },
+  { path: 'billing/:id', component: BillingComponent },
+
   { path: 'notifications', component: NotificationComponent },
   { path: 'messages', component: MessagesComponent },
   { path: 'chats', component: ChatsComponent },

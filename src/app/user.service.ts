@@ -63,8 +63,8 @@ export class UserService {
     return this.http.get(`${this.backendurl}/admin/getreceivedcalls/${id}`);
   }
 
-  getsinglepospaidplan(id: any){
-    return this.http.get(`${this.backendurl}/admin/allpospaidplan/${id}`)
+  getsingleplan(id: any){
+    return this.http.get(`${this.backendurl}/admin/viewonepospaidplan/${id}`)
   }
 
   getallplans() {

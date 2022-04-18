@@ -17,13 +17,15 @@
                   </div>
                 </div>
                 <div class="card-body pt-0 p-3 text-center">
-                  <h6 class="text-center mb-0">SIP</h6>
-                  <span class="text-xs">Monthly Charge</span>
+                  <h6 class="text-center mb-0">{{ singleplans.plantitle }}</h6>
+                  <span class="text-xs">{{singleplans.minute_balance}} Min</span>
                   <hr class="horizontal dark my-3">
-                  <h5 class="mb-0">₹300.00</h5>
+                  <h5 class="mb-0">₹{{ singleplans.planprice }}</h5>
                 </div>
               </div>
             </div>
+
+          <!--       
             <div class="col-md-3 col-6">
               <div class="card border card-plain border-radius-lg">
                 <div class="card-header mx-4 p-3 text-center">
@@ -69,7 +71,9 @@
                   <h5 class="mb-0">₹455.00</h5>
                 </div>
               </div>
-            </div>
+            </div> -->
+
+
           </div>
         </div>
       </div>
@@ -96,7 +100,7 @@
               <!-- <span class="text-xs">#MS-415646</span> -->
             </div>
             <div class="d-flex align-items-center text-dark text-gradient text-sm font-weight-bold">
-              ₹ 1,500.00
+              ₹{{ singleplans.planprice }}
             </div>
           </li>
           <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-1 border-radius-lg">
@@ -105,7 +109,7 @@
               <!-- <span class="text-xs">#MS-415646</span> -->
             </div>
             <div class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
-              + ₹ 270.00
+              + {{ singleplans.planprice * 18 / 100 }}
             </div>
           </li>
           <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-1 border-radius-lg">
@@ -114,7 +118,7 @@
               <span class="text-xs"></span>
             </div>
             <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-              - ₹ 500.00
+              - ₹ 00.00
             </div>
           </li>
           <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-1 border-radius-lg">
@@ -123,7 +127,7 @@
               <span class="text-xs"></span>
             </div>
             <div class="d-flex align-items-center text-dark text-gradient text-sm font-weight-bold">
-              ₹ 1,270.00
+              ₹ {{ total }}
             </div>
           </li>
           <!-- <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">

@@ -572,7 +572,7 @@
                   <tr>
                     <th class="border-bottom-0"></th>
                     <th class="text-center align-items-center border-bottom-0" *ngFor="let pospaidplan of pospaidplans | slice: 0:5">
-                      <a href="javascript:;" class="btn btn-dark mt-3" plan_id="pospaidplan?._id">Choose Plan</a>
+                      <a href="javascript:;" routerLink="/billing/{{pospaidplan?._id}}" class="btn btn-dark mt-3" plan_id="pospaidplan?._id">Choose Plan</a>
                     </th>
 
                     <!-- <th class="text-center align-items-center border-bottom-0">

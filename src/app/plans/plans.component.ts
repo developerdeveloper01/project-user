@@ -8,22 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlansComponent implements OnInit {
   plans:any[]=[]
+  singleplans:any[]=[]
   pospaidplans:any[]=[]
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
     this.getpopularplans()
     this.getpopularpospaidplans()
-    
-    // this.getsinglepospaidplan('623efdab645f10a61e63151b')
+
+    this.getsingleplan()
 
   }
   
-  getsinglepospaidplan(plan_id:any) {
-    console.log("Single Pospaid plans")
-    this.userService.getsinglepospaidplan(plan_id).subscribe((response:any)=>{
+  getsingleplan() {    
+    this.userService.getsingleplan('623efdab645f10a61e63151b').subscribe((response:any)=>{
+      console.log("Single Pospaid plans")
       console.log(response)
-      this.plans = response.data;
+      this.singleplans = response.data;
     },(error)=>{
      console.log(error)
     })

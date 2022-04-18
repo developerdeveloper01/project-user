@@ -1,6 +1,7 @@
 import { UserService } from 'src/app/user.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-billing',
@@ -11,7 +12,11 @@ export class BillingComponent implements OnInit {
   bills: any
   viewpaypage: boolean = false
   userDetails: any
-  constructor(private http: HttpClient, public userService: UserService) { }
+  singleplans: any
+  tax: any;
+  total: any;
+  constructor(private http: HttpClient, public userService: UserService, private router:ActivatedRoute) { } 
+
 
   // I have all below fields values
   // paytm:any = {
@@ -177,6 +182,21 @@ export class BillingComponent implements OnInit {
 
   ngOnInit(): void {
     this.getmybills()
+    this.getsingleplan()
+
+  }
+
+  getsingleplan() {    
+    this.userService.getsingleplan(this.router.snapshot.params.id).subscribe((response:any)=>{
+      console.log("Single Pospaid plans")
+      console.log(response)
+      this.singleplans = response.data;
+      this.tax = response.data.planprice * 18 / 100;
+      this.total = response.data.planprice +  this.tax;
+
+    },(error)=>{
+     console.log(error)
+    })
   }
 
   getmybills() {
@@ -194,15 +214,25 @@ export class BillingComponent implements OnInit {
     this.userService.getmyprofile().subscribe((response: any) => {
       console.log(response)
       this.userDetails = response.data;
-      const paymentPayload = {
-        email: this.userDetails.email,
-        name: this.userDetails.firstname,
-        phone: this.userDetails.mobile,
-        productInfo: "SIP",
-        amount: 1
-      }
-      console.log(paymentPayload)
-      this.postandredirect(paymentPayload)
+      
+      this.userService.getsingleplan(this.router.snapshot.params.id).subscribe((planresp:any)=>{
+
+        this.tax = planresp.data.planprice * 18 / 100;
+        this.total = planresp.data.planprice +  this.tax;
+
+        const paymentPayload = {
+          email: this.userDetails.email,
+          name: this.userDetails.firstname,
+          phone: this.userDetails.mobile,
+          productInfo: planresp.data.plantitle,
+          amount: this.total
+        }
+
+        console.log(paymentPayload)
+       this.postandredirect(paymentPayload)
+
+      })
+      
     }, (error) => {
       console.log(error)
     })

@@ -24,6 +24,7 @@ import { ChatsComponent } from './chats/chats.component';
 import { AddCardComponent } from './add-card/add-card.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import { SpinnerInterceptor } from './spinner.interceptor';
+import { PostbillingComponent } from './postbilling/postbilling.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { SpinnerInterceptor } from './spinner.interceptor';
     ChatsComponent,
     AddCardComponent,
     SpinnerOverlayComponent,
+    PostbillingComponent,
   ],
   providers: [UserService, AuthGuard, {
     provide: HTTP_INTERCEPTORS,

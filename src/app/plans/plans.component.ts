@@ -21,18 +21,19 @@ export class PlansComponent implements OnInit {
   }
   
   getsingleplan() {    
-    this.userService.getsingleplan('623efdab645f10a61e63151b').subscribe((response:any)=>{
-      console.log("Single Pospaid plans")
-      console.log(response)
-      this.singleplans = response.data;
-    },(error)=>{
-     console.log(error)
-    })
+    // this.userService.getsingleplan('623efdab645f10a61e63151b').subscribe((response:any)=>{
+    //   console.log("Single Pospaid plans")
+    //   console.log(response)
+    //   this.singleplans = response.data;
+    // },(error)=>{
+    //  console.log(error)
+    // })
   }
 
   getpopularplans(){
-    console.log("Popular plans")
+    
     this.userService.getallplans().subscribe((response:any)=>{
+      console.log("Popular plans rvd")
       console.log(response)
       this.plans = response.data;
     },(error)=>{
@@ -41,9 +42,9 @@ export class PlansComponent implements OnInit {
   }
 
   getpopularpospaidplans(){
-    console.log("Popular pospaidplans")
+    
     this.userService.getallpospaidplan().subscribe((response:any)=>{
-      console.log('test console');
+      console.log("Popular pospaidplans")
       console.log(response)
       this.pospaidplans = response.data;
     },(error)=>{

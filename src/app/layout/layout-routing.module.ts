@@ -3,6 +3,9 @@ import { OutgoingCallsComponent } from './../outgoing-calls/outgoing-calls.compo
 import { PlansComponent } from './../plans/plans.component';
 import { Routes } from '@angular/router';
 import { BillingComponent } from '../billing/billing.component';
+import { PostbillingComponent } from '../postbilling/postbilling.component';
+
+
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HomeComponent } from '../home/home.component';
 import { MessagesComponent } from '../messages/messages.component';
@@ -34,6 +37,8 @@ export const LayoutRoutingModule: Routes = [
   { path: 'call-details/:id', component: CallDetailComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'billing/:id', component: BillingComponent },
+  { path: 'postpaidbilling/:id', component: PostbillingComponent },
+
 
   { path: 'notifications', component: NotificationComponent },
   { path: 'messages', component: MessagesComponent },

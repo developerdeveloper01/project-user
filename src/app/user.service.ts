@@ -63,32 +63,41 @@ export class UserService {
     return this.http.get(`${this.backendurl}/admin/getreceivedcalls/${id}`);
   }
 
+  
+  getsinglepostpaidplan(id: any){
+
+    return this.http.get(`${this.backendurl}/admin/viewonepospaidplan/${id}`);
+
+  }
+  
   getsingleplan(id: any){
-    return this.http.get(`${this.backendurl}/admin/viewonepospaidplan/${id}`)
+
+    return this.http.get(`${this.backendurl}/admin/viewoneplan/${id}`);
+   
   }
 
   getallplans() {
-    return this.http.get(`${this.backendurl}/admin/allplan`)
+    return this.http.get(`${this.backendurl}/admin/allplan`);
   }
 
   getallpospaidplan() {
-    return this.http.get(`${this.backendurl}/admin/allpospaidplan`)
+    return this.http.get(`${this.backendurl}/admin/allpospaidplan`);
   }
 
   getincomingcalldetails(id: any) {
-    return this.http.get(`${this.backendurl}/admin/getdetailincoming/${id}`)
+    return this.http.get(`${this.backendurl}/admin/getdetailincoming/${id}`);
   }
 
   getmissedcalldetails(id: any) {
-    return this.http.get(`${this.backendurl}/admin/missedcalls/${id}`)
+    return this.http.get(`${this.backendurl}/admin/missedcalls/${id}`);
   }
 
   getallcalldetails(id: any) {
-    return this.http.get(`${this.backendurl}/admin/totalcalldetails/${id}`)
+    return this.http.get(`${this.backendurl}/admin/totalcalldetails/${id}`);
   }
 
   viewonecalldetails(id: any) {
-    return this.http.get(`${this.backendurl}/admin/viewonecdrreport/${id}`)
+    return this.http.get(`${this.backendurl}/admin/viewonecdrreport/${id}`);
   }
 
 

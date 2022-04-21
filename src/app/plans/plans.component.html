@@ -66,7 +66,7 @@
                     <th class="ps-2">
                       <h6 class="mb-0">Price </h6>
                     </th>
-                    <th class="text-center" *ngFor="let plan of plans | slice: 0:5; let i = index">
+                    <th class="text-center" *ngFor="let plan of plans; let i = index">
                       <h6 *ngIf="i == 2" class="text-white p-1 bg-gradient-primary shadow-primary border-radius-lg">
                         Recommended</h6>
                       <h6 class="font-weight-bold">{{ plan?.plantitle }}
@@ -90,7 +90,7 @@
                     <td class="py-3">
                       <span class="text-xs">Incoming Balance</span>
                     </td>
-                    <td class="text-center py-3" *ngFor="let plan of plans | slice: 0:5">
+                    <td class="text-center py-3" *ngFor="let plan of plans">
                       <!-- <i class="fas fa-check text-success text-xs"></i> -->
                       <p>{{ plan?.minute_balance }} mins</p>
                     </td>
@@ -105,7 +105,7 @@
                     <td class="py-3">
                       <span class="text-xs">Outgoing Balance</span>
                     </td>
-                    <td class="text-center py-3" *ngFor="let plan of plans | slice: 0:5">
+                    <td class="text-center py-3" *ngFor="let plan of plans">
                       <!-- <i class="fas fa-check text-success text-xs"></i> -->
                       <p>{{ plan?.minute_balance }} mins</p>
                     </td>
@@ -120,8 +120,8 @@
                     <td class="py-3">
                       <span class="text-xs">Validity (day) </span>
                     </td>
-                    <td class="text-center py-3" *ngFor="let plan of plans | slice: 0:5">
-                      <!-- <i class="fas fa-check text-success text-xs"></i> -->
+                    <td class="text-center py-3" *ngFor="let plan of plans">
+                      <!-- <i class="fas fa-check text-success text-xs"></i>  | slice: 0:5-->
                       <p>{{ plan?.validityday }} days</p>
                     </td>
                     <!-- <td class="text-center py-3">
@@ -135,7 +135,7 @@
                     <td class="py-3">
                       <span class="text-xs">Description</span>
                     </td>
-                    <td class="text-center py-3" *ngFor="let plan of plans | slice: 0:5">
+                    <td class="text-center py-3" *ngFor="let plan of plans ">
                       <!-- <i class="fas fa-check text-success text-xs"></i> -->
                       <p>{{ plan?.desc }}</p>
                     </td>
@@ -214,10 +214,10 @@
                   </tr>
                   <tr>
                     <th class="border-bottom-0"></th>
-                    <th class="text-center align-items-center border-bottom-0">
-                      <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
+                    <th class="text-center align-items-center border-bottom-0" *ngFor="let plan of plans">
+                      <a href="javascript:;" routerLink="/billing/{{ plan?._id}}" class="btn btn-dark mt-3">Choose Plan</a>
                     </th>
-                    <th class="text-center align-items-center border-bottom-0">
+                    <!-- <th class="text-center align-items-center border-bottom-0">
                       <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
                     </th>
                     <th class="text-center align-items-center border-bottom-0">
@@ -228,7 +228,7 @@
                     </th>
                     <th class="text-center align-items-center border-bottom-0">
                       <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
-                    </th>
+                    </th> -->
                   </tr>
                 </tbody>
               </table>
@@ -260,7 +260,7 @@
                     <th class="ps-2">
                       <h6 class="mb-0">Space individual</h6>
                     </th>
-                    <th class="text-center" *ngFor="let plan of plans | slice: 0:5;let j = index">
+                    <th class="text-center" *ngFor="let plan of plans ;let j = index">
                       <h6 *ngIf="j == 2" class="text-white p-1 bg-gradient-primary shadow-primary border-radius-lg">
                         Recommended</h6>
                       <h6 class="font-weight-bold">{{ plan?.plantitle }}</h6>
@@ -283,7 +283,7 @@
                     <td class="py-3">
                       <span class="text-xs">Minute Balance</span>
                     </td>
-                    <td class="text-center py-3" *ngFor="let plan of plans | slice: 0:5">
+                    <td class="text-center py-3" *ngFor="let plan of plans ">
                       <!-- <i class="fas fa-check text-success text-xs"></i> -->
                       <p>{{ plan?.minute_balance }} mins</p>
                     </td>
@@ -298,7 +298,7 @@
                     <td class="py-3">
                       <span class="text-xs">Validity (day) </span>
                     </td>
-                    <td class="text-center py-3" *ngFor="let plan of plans | slice: 0:5">
+                    <td class="text-center py-3" *ngFor="let plan of plans ">
                       <!-- <i class="fas fa-check text-success text-xs"></i> -->
                       <p>{{ plan?.validityday }} days</p>
                     </td>
@@ -313,7 +313,7 @@
                     <td class="py-3">
                       <span class="text-xs">Description</span>
                     </td>
-                    <td class="text-center py-3" *ngFor="let plan of plans | slice: 0:5">
+                    <td class="text-center py-3" *ngFor="let plan of plans ">
                       <!-- <i class="fas fa-check text-success text-xs"></i> -->
                       <p>{{ plan?.desc }}</p>
                     </td>
@@ -392,10 +392,10 @@
                   </tr>
                   <tr>
                     <th class="border-bottom-0"></th>
-                    <th class="text-center align-items-center border-bottom-0">
-                      <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
+                    <th class="text-center align-items-center border-bottom-0" *ngFor="let plan of plans ">
+                      <a href="javascript:;" routerLink="/billing/{{ plan?._id}}" class="btn btn-dark mt-3">Choose Plan</a>
                     </th>
-                    <th class="text-center align-items-center border-bottom-0">
+                    <!-- <th class="text-center align-items-center border-bottom-0">
                       <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
                     </th>
                     <th class="text-center align-items-center border-bottom-0">
@@ -406,7 +406,7 @@
                     </th>
                     <th class="text-center align-items-center border-bottom-0">
                       <a href="javascript:;" class="btn btn-dark mt-3">Choose Plan</a>
-                    </th>
+                    </th> -->
                   </tr>
                 </tbody>
               </table>
@@ -572,7 +572,8 @@
                   <tr>
                     <th class="border-bottom-0"></th>
                     <th class="text-center align-items-center border-bottom-0" *ngFor="let pospaidplan of pospaidplans | slice: 0:5">
-                      <a href="javascript:;" routerLink="/billing/{{pospaidplan?._id}}" class="btn btn-dark mt-3" plan_id="pospaidplan?._id">Choose Plan</a>
+
+                      <a href="javascript:;" routerLink="/postpaidbilling/{{ pospaidplan?._id}}" class="btn btn-dark mt-3" plan_id="pospaidplan?._id">Choose Plan</a>
                     </th>
 
                     <!-- <th class="text-center align-items-center border-bottom-0">

@@ -28,12 +28,12 @@ export class IncomingCallsComponent implements OnInit {
     this.userService.getmyprofile().subscribe((response:any)=>{
       //  console.log(response)
         this.userDetails = response.data;
-  
+
         var did_no = response.data.alloted_did.did_no;
-        var lastFourDid = did_no.substr(did_no.length - 4); 
+        var lastFourDid = did_no.substr(did_no.length - 4);
          console.log(lastFourDid)
 
-         this.receivedcalllogs(lastFourDid);        
+         this.receivedcalllogs(lastFourDid);
 
       },(error)=>{
        console.log(error)

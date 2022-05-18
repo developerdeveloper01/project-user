@@ -63,21 +63,29 @@ export class UserService {
     return this.http.get(`${this.backendurl}/admin/getreceivedcalls/${id}`);
   }
 
-  
+
   getsinglepostpaidplan(id: any){
 
     return this.http.get(`${this.backendurl}/admin/viewonepospaidplan/${id}`);
 
   }
-  
+
   getsingleplan(id: any){
 
     return this.http.get(`${this.backendurl}/admin/viewoneplan/${id}`);
-   
+
   }
 
   getallplans() {
     return this.http.get(`${this.backendurl}/admin/allplan`);
+  }
+
+  getallinvoices() {
+    return this.http.get(`${this.backendurl}/user/allinvoice`);
+  }
+
+  viewoneinvoice(id: any) {
+    return this.http.get(`${this.backendurl}/user/viewoneinvoice/${id}`);
   }
 
   getallpospaidplan() {

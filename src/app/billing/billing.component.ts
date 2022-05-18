@@ -15,7 +15,7 @@ export class BillingComponent implements OnInit {
   singleplans: any
   tax: any;
   total: any;
-  constructor(private http: HttpClient, public userService: UserService, private router:ActivatedRoute) { }
+  constructor(private http: HttpClient, public userService: UserService, private router:ActivatedRoute) { } 
 
 
   // I have all below fields values
@@ -186,7 +186,7 @@ export class BillingComponent implements OnInit {
 
   }
 
-  getsingleplan() {
+  getsingleplan() {    
     this.userService.getsingleplan(this.router.snapshot.params.id).subscribe((response:any)=>{
       console.log("Single Pospaid plans")
       console.log(response)
@@ -214,7 +214,7 @@ export class BillingComponent implements OnInit {
     this.userService.getmyprofile().subscribe((response: any) => {
       console.log(response)
       this.userDetails = response.data;
-
+      
       this.userService.getsingleplan(this.router.snapshot.params.id).subscribe((planresp:any)=>{
 
         this.tax = planresp.data.planprice * 18 / 100;
@@ -232,7 +232,7 @@ export class BillingComponent implements OnInit {
        this.postandredirect(paymentPayload)
 
       })
-
+      
     }, (error) => {
       console.log(error)
     })
@@ -246,7 +246,9 @@ export class BillingComponent implements OnInit {
   }
   postandredirect(data: any) {
     this.userService.inittransaction(data).subscribe((response: any) => {
-      window.open(response.response);
+      console.log(response.response)
+
+      window.location.href = response.response;
     }, (error) => {
       console.log(error)
     })

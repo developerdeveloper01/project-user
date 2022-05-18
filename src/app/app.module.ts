@@ -25,7 +25,7 @@ import { AddCardComponent } from './add-card/add-card.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import { SpinnerInterceptor } from './spinner.interceptor';
 import { PostbillingComponent } from './postbilling/postbilling.component';
-
+import { AllinvoiceComponent } from './allinvoice/allinvoice.component';
 
 @NgModule({
   imports: [
@@ -51,6 +51,8 @@ import { PostbillingComponent } from './postbilling/postbilling.component';
     AddCardComponent,
     SpinnerOverlayComponent,
     PostbillingComponent,
+    AllinvoiceComponent,
+
   ],
   providers: [UserService, AuthGuard, {
     provide: HTTP_INTERCEPTORS,

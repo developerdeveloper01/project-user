@@ -8,30 +8,40 @@
   <div class="col-md-10 mx-auto">
     <form [formGroup]="filterdata" (submit)="filterdate()">
       <div class="row">
-
         <div class="col-lg-4 mt-lg-n2 mt-2">
           <label class="ms-0">From</label>
           <div class="input-group input-group-static">
             <span class="input-group-text"></span>
-            <input class="form-control datepicker" formControlName="startdate" [min]="datemin" [max]="lastdate"
-              placeholder="Please select date" type="date">
+            <input
+              class="form-control datepicker"
+              formControlName="startdate"
+              [min]="datemin"
+              [max]="lastdate"
+              placeholder="Please select date"
+              type="date"
+            />
           </div>
-
         </div>
         <div class="col-lg-4 mt-lg-n2 mt-2">
           <label class="ms-0">To</label>
           <div class="input-group input-group-static">
             <span class="input-group-text"></span>
-            <input class="form-control datepicker" formControlName="enddate"
-              [min]="filterdata.controls['startdate'].value" [max]="lastdate" placeholder="Please select date"
-              type="date">
+            <input
+              class="form-control datepicker"
+              formControlName="enddate"
+              [min]="filterdata.controls['startdate'].value"
+              [max]="lastdate"
+              placeholder="Please select date"
+              type="date"
+            />
           </div>
         </div>
         <div class="col-lg-4 mt-lg-n2 mt-2">
           <label>&nbsp;</label>
-          <button type="submit" class="btn bg-gradient-primary w-100 mb-0">Search</button>
+          <button type="submit" class="btn bg-gradient-primary w-100 mb-0">
+            Search
+          </button>
         </div>
-
       </div>
     </form>
   </div>
@@ -39,83 +49,76 @@
 <div class="col-12">
   <div class="card my-4">
     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-      <div class="bg-gradient-warning shadow-warning border-radius-lg pt-4 pb-3">
-        <h6 class="text-white text-capitalize ps-3">Outgoing Calls | <span class="opacity-8">
-            {{newarr?.length || allcalllogs?.length}}</span></h6>
+      <div
+        class="bg-gradient-warning shadow-warning border-radius-lg pt-4 pb-3"
+      >
+        <h6 class="text-white text-capitalize ps-3">
+          Outgoing Calls |
+          <span class="opacity-8">
+            {{ newarr?.length || allcalllogs?.length }}
+          </span>
+        </h6>
       </div>
     </div>
-
 
     <div class="card-body px-0 pb-2">
       <div class="table-responsive p-0 overflow-hidden">
         <table class="table align-items-center mb-0">
           <thead>
             <tr>
-              <th class="
-                text-uppercase text-center text-secondary text-xxs
-                font-weight-bolder
-                opacity-7
-              ">
+              <th
+                class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7"
+              >
                 #S.No.
               </th>
-              <th class="
-                  text-uppercase text-center text-secondary text-xxs
-                  font-weight-bolder
-                  opacity-7
-                ">
+              <th
+                class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7"
+              >
                 #ID
               </th>
-              <th class="
-                  text-uppercase text-center text-secondary text-xxs
-                  font-weight-bolder
-                  opacity-7
-                ">
+              <th
+                class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7"
+              >
                 Destination
               </th>
-              <th class="
-                  text-uppercase text-center text-secondary text-xxs
-                  font-weight-bolder
-                  opacity-7
-                ">
+              <th
+                class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7"
+              >
                 Caller
               </th>
-              <th class="
-                  text-uppercase text-center text-secondary text-xxs
-                  font-weight-bolder
-                  opacity-7
-                  ps-2
-                ">
+              <th
+                class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+              >
                 Call ID
               </th>
-              <th class="
-                  text-uppercase text-center text-secondary text-xxs
-                  font-weight-bolder
-                  opacity-7
-                ">
+              <th
+                class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7"
+              >
                 Bill/HangUp
               </th>
-              <th class="
-                  text-uppercase text-center text-secondary text-xxs
-                  font-weight-bolder
-                  opacity-7
-                ">
+              <th
+                class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7"
+              >
                 Date
               </th>
-              <th class="
-                  text-uppercase text-center text-secondary text-xxs
-                  font-weight-bolder
-                  opacity-7
-                ">
+              <th
+                class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7"
+              >
                 Actions
               </th>
             </tr>
           </thead>
           <tbody>
             <tr
-              *ngFor="let log of newarr || allcalllogs | paginate: { itemsPerPage: 10, currentPage: q }; let i = index">
+              *ngFor="
+                let log of newarr || allcalllogs
+                  | paginate: { itemsPerPage: 10, currentPage: q };
+                let i = index
+              "
+            >
               <td>
                 <p class="text-xs font-weight-bold mb-0 text-center">
-                  {{ i+1+(q-1)*10 }}
+                  {{ i + 1 + (q - 1) * 10 }}
                 </p>
               </td>
               <td>
@@ -144,13 +147,25 @@
                 </p>
               </td>
               <td>
-                <span class="text-secondary text-xs font-weight-bold text-center">{{ log.created_time | date: "short"
-                  }}</span>
+                <span
+                  class="text-secondary text-xs font-weight-bold text-center"
+                >
+                  {{ log.created_time | date: 'short' }}
+                </span>
               </td>
               <td class="align-middle text-center">
-                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
-                  data-original-title="Edit user" routerLink="/call-details/{{log._id}}">
-                  <i class="material-icons opacity-10" style="color: var(--bs-info)">visibility
+                <a
+                  href="javascript:;"
+                  class="text-secondary font-weight-bold text-xs"
+                  data-toggle="tooltip"
+                  data-original-title="Edit user"
+                  routerLink="/call-details/{{ log._id }}"
+                >
+                  <i
+                    class="material-icons opacity-10"
+                    style="color: var(--bs-info);"
+                  >
+                    visibility
                   </i>
                 </a>
               </td>
@@ -165,7 +180,10 @@
         </table>
         <div class="row justify-content-center my-3">
           <div class="col-12 p-2 text-center">
-            <pagination-controls class="my-pagination" (pageChange)="q = $event"></pagination-controls>
+            <pagination-controls
+              class="my-pagination"
+              (pageChange)="q = $event"
+            ></pagination-controls>
           </div>
         </div>
       </div>

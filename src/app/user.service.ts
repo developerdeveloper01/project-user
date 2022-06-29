@@ -1,136 +1,132 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Injectable } from '@angular/core'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
   // backendurltest = 'https://demo.rishtaguru.com/api';
   // backendurlold = 'http://localhost:6789/api';
-  backendurlolder = 'http://52.90.52.191/v1/api';
-  backendurl = 'http://3.111.139.178/v1/api';
-  getvalue: string = ""
+  backendurlolder = 'http://52.90.52.191/v1/api'
+  backendurl = 'http://3.111.139.178/v1/api'
+  getvalue: string = ''
   constructor(public http: HttpClient) {
-    console.log("constructor hit");
+    console.log('constructor hit')
   }
 
   login(data: any) {
-    return this.http.post(`${this.backendurl}/user/login`, data);
+    return this.http.post(`${this.backendurl}/user/login`, data)
   }
 
   getmyprofile() {
     let header = new HttpHeaders({
       'Content-Type': 'application/json',
-      'auth-token': "Bearer " + localStorage.getItem('auth-token'),
+      'auth-token': 'Bearer ' + localStorage.getItem('auth-token'),
     })
     return this.http.get(`${this.backendurl}/user/myprofile`, {
       headers: header,
-    });
+    })
   }
 
   editprofile(data: any) {
     let header = new HttpHeaders({
       'Content-Type': 'application/json',
-      'auth-token': "Bearer " + localStorage.getItem('auth-token'),
+      'auth-token': 'Bearer ' + localStorage.getItem('auth-token'),
     })
     return this.http.post(`${this.backendurl}/user/setting`, data, {
       headers: header,
-    });
+    })
   }
 
   getcalllogs(id: any) {
-    return this.http.get(`${this.backendurl}/admin/getdetailofonenumber/${id}`);
+    return this.http.get(`${this.backendurl}/admin/getdetailofonenumber/${id}`)
   }
 
   getoutgoingcallcount(id: any) {
-    return this.http.get(`${this.backendurl}/admin/outgoingcallcount/${id}`);
+    return this.http.get(`${this.backendurl}/admin/outgoingcallcount/${id}`)
   }
 
   getincomingcallcount(id: any) {
-    return this.http.get(`${this.backendurl}/admin/incomingcallcount/${id}`);
+    return this.http.get(`${this.backendurl}/admin/incomingcallcount/${id}`)
   }
 
   getallcallcount(id: any) {
-    return this.http.get(`${this.backendurl}/admin/totalcallcount/${id}`);
+    return this.http.get(`${this.backendurl}/admin/totalcallcount/${id}`)
   }
 
   getmissedcallcount(id: any) {
-    return this.http.get(`${this.backendurl}/admin/missedcallcount/${id}`);
+    return this.http.get(`${this.backendurl}/admin/missedcallcount/${id}`)
   }
 
   getreceivedcalls(id: any) {
-    return this.http.get(`${this.backendurl}/admin/getreceivedcalls/${id}`);
+    return this.http.get(`${this.backendurl}/admin/getreceivedcalls/${id}`)
   }
 
-
-  getsinglepostpaidplan(id: any){
-
-    return this.http.get(`${this.backendurl}/admin/viewonepospaidplan/${id}`);
-
+  getsinglepostpaidplan(id: any) {
+    return this.http.get(`${this.backendurl}/admin/viewonepospaidplan/${id}`)
   }
 
-  getsingleplan(id: any){
-
-    return this.http.get(`${this.backendurl}/admin/viewoneplan/${id}`);
-
+  getsingleplan(id: any) {
+    return this.http.get(`${this.backendurl}/admin/viewoneplan/${id}`)
   }
 
   getallplans() {
-    return this.http.get(`${this.backendurl}/admin/allplan`);
+    return this.http.get(`${this.backendurl}/admin/allplan`)
   }
 
   getallinvoices() {
-    return this.http.get(`${this.backendurl}/user/allinvoice`);
+    return this.http.get(`${this.backendurl}/user/allinvoice`)
   }
 
   viewoneinvoice(id: any) {
-    return this.http.get(`${this.backendurl}/user/viewoneinvoice/${id}`);
+    return this.http.get(`${this.backendurl}/user/viewoneinvoice/${id}`)
   }
 
   getallpospaidplan() {
-    return this.http.get(`${this.backendurl}/admin/allpospaidplan`);
+    return this.http.get(`${this.backendurl}/admin/allpospaidplan`)
   }
 
   getincomingcalldetails(id: any) {
-    return this.http.get(`${this.backendurl}/admin/getdetailincoming/${id}`);
+    return this.http.get(`${this.backendurl}/admin/getdetailincoming/${id}`)
   }
 
   getmissedcalldetails(id: any) {
-    return this.http.get(`${this.backendurl}/admin/missedcalls/${id}`);
+    return this.http.get(`${this.backendurl}/admin/missedcalls/${id}`)
   }
 
   getallcalldetails(id: any) {
-    return this.http.get(`${this.backendurl}/admin/totalcalldetails/${id}`);
+    return this.http.get(`${this.backendurl}/admin/totalcalldetails/${id}`)
   }
 
   viewonecalldetails(id: any) {
-    return this.http.get(`${this.backendurl}/admin/viewonecdrreport/${id}`);
+    return this.http.get(`${this.backendurl}/admin/viewonecdrreport/${id}`)
   }
 
-
   getchatwithuser(id: any) {
-    return this.http.get(`${this.backendurl}/admin/allchatwithuser/${id}`);
+    return this.http.get(`${this.backendurl}/admin/allchatwithuser/${id}`)
   }
 
   sendchat(data: any) {
-    return this.http.post(`${this.backendurl}/admin/addchat`, data);
+    return this.http.post(`${this.backendurl}/admin/addchat`, data)
   }
 
   markasread(id: any) {
-    return this.http.get(`${this.backendurl}/admin/markasread/${id}`);
+    return this.http.get(`${this.backendurl}/admin/markasread/${id}`)
   }
 
   unreadmessages(id: any) {
-    return this.http.get(`${this.backendurl}/admin/unreadmessages/${id}`);
+    return this.http.get(`${this.backendurl}/admin/unreadmessages/${id}`)
   }
 
   getmybilling(id: any) {
-    return this.http.get(`${this.backendurl}/user/allmybilling/${id}`);
+    return this.http.get(`${this.backendurl}/user/allmybilling/${id}`)
   }
 
   inittransaction(data: any) {
-    return this.http.post(`${this.backendurl}/admin/paynownew`, data);
+    return this.http.post(`${this.backendurl}/admin/paynownew`, data)
   }
 
+  getoutgoingList() {
+    return this.http.get(`${this.backendurl}/user/alloutgoingcall`)
+  }
 }

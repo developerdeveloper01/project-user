@@ -18,7 +18,8 @@ export class PaymoneyComponent implements OnInit {
       name: this.payuform.firstname,
       phone: this.payuform.phone,
       productInfo: this.payuform.productinfo,
-      amount: this.payuform.amount
+      amount: this.payuform.amount,
+      status: this.payuform.status
     }
     return this.http.post<any>('http://localhost:6789/api/admin/paynownew', paymentPayload).subscribe(
       (data: any) => {
